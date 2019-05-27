@@ -88,7 +88,7 @@
 							<input type="file" id="upload_file" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" class="upload-input"
 							 @change="onFileChange" />
 						</div>
-						<p>（2/9)</p>
+						<p>（{{images.length}}/5)</p>
 					</div>
 
 				</div>
@@ -190,6 +190,7 @@
 			Footer
 		},
 		mounted() {
+	
 
 		},
 		directives: {
@@ -201,6 +202,7 @@
 				this.elastic_frame = false;
 			},
 			getShow() {
+				console.log(123)
 				this.elastic_frame = true
 			},
 			getMap(e) {
