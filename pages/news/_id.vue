@@ -1,7 +1,7 @@
 <template>
 	<div>
 		
-		<div class="brand-box-warp">
+		<div class="brand-box-warp"  style="overflow: unset;">
 			<Hearder :navActive='navActive' />
 			<div class="brand-box">
 				<h1 class="brand-title">新闻中心</h1>

@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<Hearder :navActive='navActive' />
-	<div class="brand-box-warp">
+	<div class="brand-box-warp" style="overflow: unset;">
 		<div class="brand-box">
 			<h1 class="brand-title">商超合作</h1>
 			<p class="brand-desc">Brand cooperation</p>
