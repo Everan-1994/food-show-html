@@ -100,7 +100,7 @@
 			let footer = await getRequest(`footer`);
 			
 			return {
-				newArr: news.data.data,
+				newArr: news.data,
 				footers: footer.data
 			};
 
