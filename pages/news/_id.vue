@@ -1,7 +1,7 @@
 <template>
 	<div>
-		
-		<div class="brand-box-warp"  style="overflow: unset;">
+
+		<div class="brand-box-warp" style="overflow: unset;">
 			<Hearder :navActive='navActive' />
 			<div class="brand-box">
 				<h1 class="brand-title">新闻中心</h1>
@@ -10,7 +10,7 @@
 
 			<div class="w1200 new-box">
 				<div class="serch-box" v-if="ifshow">
-					<input type="text" placeholder="请输入关键字" v-model="keyWords"/>
+					<input type="text" placeholder="请输入关键字" v-model="keyWords" />
 					<img src="../../assets/images/ic_news_search1@2x.png" class="serch-icon" @click="getSearch" />
 				</div>
 				<div class="new-nav">
@@ -30,8 +30,8 @@
 					</ul>
 				</div>
 				<div class="new-content">
-					<div  v-for="(item,index) in newArr" :key="index" :class="index%2 != 0 ? 'new-list new-list-even' :'new-list' ">
-						<nuxt-link :to="'/news/'+new_id+'/'+item.id"  v-if="index%2 != 1">
+					<div v-for="(item,index) in newArr" :key="index" :class="index%2 != 0 ? 'new-list new-list-even' :'new-list' ">
+						<nuxt-link :to="'/news/'+new_id+'/'+item.id" v-if="index%2 != 1">
 							<div class="new-info">
 								<h1>{{item.title}}</h1>
 								<p class="new-desc">{{item.intro}}</p>
@@ -43,13 +43,28 @@
 							<div class="new-img">
 								<img :src="imgUrl+item.image" />
 							</div>
+							<!-- <div class="new-img" v-if="item.type==0">
+								<img :src="imgUrl+item.image" />
+							</div>
+							<div class="new-img" v-else>
+								<video class="video-box" src="http://www.w3school.com.cn/i/movie.ogg" id="video" @click="getVideo"></video>
+								<img v-if="isShowVideo" src="../../assets/images/ic-ownbrand-videobutton@2x.png" class="video-play-btn"  @click="getVideo"/>
+							</div> -->
 						</nuxt-link>
-						
-						
-						<nuxt-link :to="'/news/'+new_id+'/'+item.id"  v-if="index%2 != 0">
+
+
+						<nuxt-link :to="'/news/'+new_id+'/'+item.id" v-if="index%2 != 0">
 							<div class="new-img">
 								<img :src="imgUrl+item.image" />
 							</div>
+							
+							<!-- <div class="new-img" v-if="item.type==0">
+								<img :src="imgUrl+item.image" />
+							</div>
+							<div class="new-img" v-else>
+								<video class="video-box" src="http://www.w3school.com.cn/i/movie.ogg" id="video" @click="getVideo"></video>
+								<img v-if="isShowVideo" src="../../assets/images/ic-ownbrand-videobutton@2x.png" class="video-play-btn"  @click="getVideo"/>
+							</div> -->
 							<div class="new-info">
 								<h1>{{item.title}}</h1>
 								<p class="new-desc">{{item.intro}}</p>
@@ -58,10 +73,11 @@
 									<span>{{item.from}} -></span>
 								</p>
 							</div>
-						
+
 						</nuxt-link>
-						
+
 					</div>
+
 				</div>
 
 			</div>
@@ -98,9 +114,8 @@
 		}) {
 			let news = await getRequest(`news_list?type=${params.id}&page=1&pageSize=5`);
 			let footer = await getRequest(`footer`);
-			
 			return {
-				newArr: news.data.data,
+				newArr: news.data,
 				footers: footer.data
 			};
 
@@ -114,7 +129,8 @@
 				num: 2,
 				loading: false,
 				noData: false,
-				keyWords:''
+				keyWords: '',
+				isShowVideo:true
 			};
 		},
 		created() {
@@ -123,16 +139,37 @@
 		mounted() {
 
 			window.addEventListener('scroll', this.getNewScroll)
+			
+			//let myVideo = document.getElementById("video");
+			
 		},
 		components: {
 			Hearder,
 			Footer
 		},
 		methods: {
-			getSearch(){
-				console.log(this.keyWords)
-				getRequest(`news_list?keyword=${this.keyWords}`).then(res=>{
-					let data = res.data.data
+			getVideo() {
+				let myVideo = document.getElementById("video");			
+				if(this.isShowVideo){
+					myVideo.play()
+					this.isShowVideo = false;
+				}else{
+					myVideo.pause()
+					this.isShowVideo = true;
+				}
+				
+				let that = this
+				myVideo.addEventListener('play', function() {
+					that.isShowVideo = false;
+				});
+				myVideo.addEventListener('pause', function() {
+					that.isShowVideo = true;
+				})
+				
+			},
+			getSearch() {
+				getRequest(`news_list?keyword=${this.keyWords}`).then(res => {
+					let data = res.data
 					this.newArr = data
 					window.removeEventListener('scroll', this.getNewScroll)
 				})
@@ -145,12 +182,12 @@
 					let par = that.num++
 					this.loading = true
 					let arr = []
-					this.newArr.forEach(e=>{
+					this.newArr.forEach(e => {
 						arr.push(e)
 					})
-					
+
 					getData(id, par).then(res => {
-						let data = res.data
+						let data = res
 						data.forEach((e, i) => {
 							arr.push(e)
 							this.loading = false

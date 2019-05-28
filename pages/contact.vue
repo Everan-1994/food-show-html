@@ -47,7 +47,7 @@
 			</div>
 		</div>
 		<Footer :data="footers" />
-		<div class="food-mask" v-if="elastic_frame">
+		<div class="food-mask" v-if="elastic_frame" @click="getClose">
 			<div class="food-mask-box">
 				<h1 class="mask-title">联络我们</h1>
 				<div class="form-input">
@@ -96,6 +96,13 @@
 				<button class="contact-submit" @click="getSubmit">提交</button>
 			</div>
 		</div>
+		
+		<div class="food-mask" v-show="success">
+			<div class="success-box">
+				<img src="../assets/images/pic_contact_success.png" />
+				<p>恭喜你！提交成功！</p>
+			</div>
+		</div>
 
 		<img src="/images/pic_contact_pic.png" class="contact-information-bg" />
 	</div>
@@ -119,10 +126,12 @@
 			function documentHandler(e) {
 				// 这里判断点击的元素是否是本身，是本身，则返回
 				if (el.contains(e.target)) {
+					console.log(1)
 					return false;
 				}
 				// 判断指令中是否绑定了函数
 				if (binding.expression) {
+					console.log(2)
 					// 如果绑定了函数 则调用那个函数，此处binding.value就是handleClose方法
 					binding.value(e);
 				}
@@ -132,6 +141,7 @@
 			document.addEventListener('click', documentHandler);
 		},
 		unbind(el, binding) {
+			console.log(3)
 			// 解除事件监听
 			document.removeEventListener('click', el.__vueClickOutside__);
 			delete el.__vueClickOutside__;
@@ -177,7 +187,8 @@
 				message: '',
 				images: [],
 				toast_text: '',
-				elastic_frame: false
+				elastic_frame: false,
+				success:false
 
 			};
 		},
@@ -190,21 +201,30 @@
 			Footer
 		},
 		mounted() {
-	
+
 
 		},
 		directives: {
 			clickoutside
 		},
 		methods: {
-			handleClose(e) {
-				
-				this.elastic_frame = false;
+			getClose(e) {
+				const cDom = document.querySelector(".food-mask-box");
+				const tDom = e.target;
+				if (cDom == tDom || cDom.contains(tDom)) {
+
+				} else {
+					this.elastic_frame = false;
+				}
 			},
 			getShow() {
-				console.log(123)
 				this.elastic_frame = true
 			},
+			handleClose(e) {
+
+				this.elastic_frame = false;
+			},
+
 			getMap(e) {
 
 				let poit = []
@@ -296,7 +316,6 @@
 				const email_reg = /^[A-Za-z\d]+([-_.][A-Za-z\d]+)*@([A-Za-z\d]+[-.])+[A-Za-z\d]{2,4}$/
 				const tel_reg = /^1(3|4|5|7|8)\d{9}$/
 
-				console.log(title + user_tel + user_email)
 				if (user_name == "") {
 					this.toast_text = "请输入姓名"
 				} else if (user_email == "") {
@@ -308,9 +327,16 @@
 					this.toast_text = "请输入手机号"
 				} else if (!(tel_reg.test(user_tel))) {
 					this.toast_text = "请输入正确的手机号"
+				} else if (user_address == "") {
+					this.toast_text = "请输入地址"
+				} else if (title == "") {
+					this.toast_text = "请输入标题"
+				} else if (user_message == "") {
+					this.toast_text = "请输入留言"
 				} else {
 					this.toast_text = " "
 				}
+				console.log(images_url)
 				const data = {
 					title: title,
 					user_tel: user_tel,
