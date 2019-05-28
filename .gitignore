@@ -1,4 +1,5 @@
 /node_modules
 /.nuxt
 /.DS_Store
+nuxt.config.js
 

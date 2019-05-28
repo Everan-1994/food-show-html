@@ -66,7 +66,7 @@ export default {
 		]
 	],
 	env: {
-		baseUrl: 'http://localhost:3000/api/',
+		baseUrl: 'http://food.show.lzdu.com/api/',
 		imgUrl:'http://food.resource.lzdu.com/'
 	},
 
@@ -94,5 +94,9 @@ export default {
     */
     extend(config, ctx) {
     }
-  }
+  },
+  server: {
+    port: 8000,
+    host: 'localhost',
+  },
 }
