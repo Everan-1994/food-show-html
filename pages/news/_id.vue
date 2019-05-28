@@ -1,7 +1,7 @@
 <template>
 	<div>
 
-		<div class="brand-box-warp" style="overflow: unset;">
+		<div class="brand-box-warp"  style="overflow: unset;">
 			<Hearder :navActive='navActive' />
 			<div class="brand-box">
 				<h1 class="brand-title">新闻中心</h1>
@@ -45,6 +45,7 @@
 							</div>
 							<!-- <div class="new-img" v-if="item.type==0">
 								<img :src="imgUrl+item.image" />
+
 							</div>
 							<div class="new-img" v-else>
 								<video class="video-box" src="http://www.w3school.com.cn/i/movie.ogg" id="video" @click="getVideo"></video>
@@ -65,6 +66,7 @@
 								<video class="video-box" src="http://www.w3school.com.cn/i/movie.ogg" id="video" @click="getVideo"></video>
 								<img v-if="isShowVideo" src="../../assets/images/ic-ownbrand-videobutton@2x.png" class="video-play-btn"  @click="getVideo"/>
 							</div> -->
+
 							<div class="new-info">
 								<h1>{{item.title}}</h1>
 								<p class="new-desc">{{item.intro}}</p>
@@ -74,7 +76,13 @@
 								</p>
 							</div>
 
+
+	
+
+
+						
 						</nuxt-link>
+						
 
 					</div>
 
@@ -114,6 +122,7 @@
 		}) {
 			let news = await getRequest(`news_list?type=${params.id}&page=1&pageSize=5`);
 			let footer = await getRequest(`footer`);
+
 			return {
 				newArr: news.data,
 				footers: footer.data
@@ -131,6 +140,7 @@
 				noData: false,
 				keyWords: '',
 				isShowVideo:true
+
 			};
 		},
 		created() {
@@ -148,6 +158,7 @@
 			Footer
 		},
 		methods: {
+
 			getVideo() {
 				let myVideo = document.getElementById("video");			
 				if(this.isShowVideo){
@@ -170,6 +181,7 @@
 			getSearch() {
 				getRequest(`news_list?keyword=${this.keyWords}`).then(res => {
 					let data = res.data
+
 					this.newArr = data
 					window.removeEventListener('scroll', this.getNewScroll)
 				})
@@ -182,12 +194,15 @@
 					let par = that.num++
 					this.loading = true
 					let arr = []
+
 					this.newArr.forEach(e => {
 						arr.push(e)
 					})
 
 					getData(id, par).then(res => {
 						let data = res
+
+					
 						data.forEach((e, i) => {
 							arr.push(e)
 							this.loading = false
