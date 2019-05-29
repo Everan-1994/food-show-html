@@ -19,6 +19,10 @@
 				<span>{{newArr.from}}</span>
 			</div>
 			<main v-html="newArr.content"></main>
+			<div class="new-video" v-if="newArr.video != null">
+				<video class="video-box" :src="imgUrl+newArr.myVideo" id="video" @click="getVideo"></video>
+				<img v-if="isShowVideo" src="~/assets/images/ic-ownbrand-videobutton@2x.png" class="video-play-btn"  @click="getVideo"/>
+			</div>
 			<div class="end">EDN</div>
 		</div>
 		<Footer :data="footers" />
@@ -49,9 +53,11 @@
 		},
 		data() {
 			return {
+				imgUrl: process.env.imgUrl,
 				navActive:'news',
 			child:'',
-			id:''
+			id:'',
+			isShowVideo:true
 			};
 		},
 		created() {
@@ -64,7 +70,27 @@
 			Hearder,
 			Footer
 		},
-		methods: {}
+		methods: {
+			getVideo() {
+				let myVideo = document.getElementById("video");			
+				if(this.isShowVideo){
+					myVideo.play()
+					this.isShowVideo = false;
+				}else{
+					myVideo.pause()
+					this.isShowVideo = true;
+				}
+				
+				let that = this
+				myVideo.addEventListener('play', function() {
+					that.isShowVideo = false;
+				});
+				myVideo.addEventListener('pause', function() {
+					that.isShowVideo = true;
+				})
+				
+			},
+		}
 	};
 </script>
 

@@ -79,13 +79,13 @@
 
 				<div class="uplod-img">
 					<div class="uplod-img-list" v-if="images.length >0" v-for="(item,index) in images">
-						<img :src="item" class="img" />
+						<img :src="imgUrl + item" class="img" />
 						<img src="../assets/images/pic_contact_delet.png" class="delete-img" @click='delImage(index)' />
 					</div>
 					<div class="add">
 						<div @click="fileClick">
 							<img src="~/assets/images/pic_contact_add.png" />
-							<input type="file" id="upload_file" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" class="upload-input"
+							<input type="file" id="upload_file" ref="file" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" class="upload-input"
 							 @change="onFileChange" />
 						</div>
 						<p>（{{images.length}}/5)</p>
@@ -119,6 +119,9 @@
 	import {
 		postRequest
 	} from '~/plugins/vue-axios';
+	import {
+		uploadFileRequest
+	} from '~/plugins/vue-axios';
 
 	const clickoutside = {
 		// 初始化指令
@@ -131,7 +134,6 @@
 				}
 				// 判断指令中是否绑定了函数
 				if (binding.expression) {
-					console.log(2)
 					// 如果绑定了函数 则调用那个函数，此处binding.value就是handleClose方法
 					binding.value(e);
 				}
@@ -141,7 +143,6 @@
 			document.addEventListener('click', documentHandler);
 		},
 		unbind(el, binding) {
-			console.log(3)
 			// 解除事件监听
 			document.removeEventListener('click', el.__vueClickOutside__);
 			delete el.__vueClickOutside__;
@@ -176,6 +177,7 @@
 		},
 		data() {
 			return {
+				imgUrl: process.env.imgUrl,
 				navActive: 'contact',
 				value: '',
 				no_data: false,
@@ -221,12 +223,10 @@
 				this.elastic_frame = true
 			},
 			handleClose(e) {
-
 				this.elastic_frame = false;
 			},
 
 			getMap(e) {
-
 				let poit = []
 				poit[0] = e.longitude
 				poit[1] = e.latitude
@@ -266,8 +266,6 @@
 						this.contactArr = []
 					}
 
-
-
 				})
 
 			},
@@ -292,20 +290,23 @@
 				var leng = file.length;
 				if (leng > 5) {
 					this.toast_text = '最多只能上传5张图片'
-
 				} else {
-					for (let i = 0; i < leng; i++) {
-						var reader = new FileReader();
-						reader.readAsDataURL(file[i]);
-						reader.onload = function(e) {
-							vm.images.push(e.target.result);
-						};
-					}
+					let formData = new FormData()
+					formData.append('images_url[]',file[0])
+					uploadFileRequest('uploads', formData).then(res => {
+						let data = res.data
+						vm.images.push(data) 
+					})
+					// for (let i = 0; i < leng; i++) {
+					// 	var reader = new FileReader();
+					// 	reader.readAsDataURL(file[i]);
+					// 	reader.onload = function(e) {
+					// 		vm.images.push(e.target.result);
+					// 	};
+					// }
 				}
-
 			},
 			getSubmit() {
-
 				const title = this.title
 				const user_tel = this.tel
 				const user_name = this.name
@@ -320,7 +321,6 @@
 					this.toast_text = "请输入姓名"
 				} else if (user_email == "") {
 					this.toast_text = "请输入邮箱"
-
 				} else if (!(email_reg.test(user_email))) {
 					this.toast_text = "请输入正确的邮箱"
 				} else if (user_tel == "") {
@@ -347,7 +347,15 @@
 					images_url: images_url,
 				}
 				postRequest('submit_cooperation', data).then(res => {
-					console.log(res)
+					if(res.status>200){
+						this.elastic_frame = false
+						this.success = true
+						let that = this
+						setTimeout(function(){
+							that.success = false
+						},2000)
+					}
+					
 				})
 			}
 

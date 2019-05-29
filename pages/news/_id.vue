@@ -40,32 +40,28 @@
 									<span>{{item.from}} -></span>
 								</p>
 							</div>
-							<div class="new-img">
-								<img :src="imgUrl+item.image" />
-							</div>
-							<!-- <div class="new-img" v-if="item.type==0">
+							
+							<div class="new-img" v-if="item.resource_type==1">
 								<img :src="imgUrl+item.image" />
 
 							</div>
 							<div class="new-img" v-else>
-								<video class="video-box" src="http://www.w3school.com.cn/i/movie.ogg" id="video" @click="getVideo"></video>
+								<video class="video-box" :src="imgUrl+item.video" id="video" @click="getVideo"></video>
 								<img v-if="isShowVideo" src="../../assets/images/ic-ownbrand-videobutton@2x.png" class="video-play-btn"  @click="getVideo"/>
-							</div> -->
+							</div>
 						</nuxt-link>
 
 
 						<nuxt-link :to="'/news/'+new_id+'/'+item.id" v-if="index%2 != 0">
-							<div class="new-img">
-								<img :src="imgUrl+item.image" />
-							</div>
 							
-							<!-- <div class="new-img" v-if="item.type==0">
+							
+							<div class="new-img" v-if="item.resource_type==1">
 								<img :src="imgUrl+item.image" />
 							</div>
 							<div class="new-img" v-else>
-								<video class="video-box" src="http://www.w3school.com.cn/i/movie.ogg" id="video" @click="getVideo"></video>
+								<video class="video-box" :src="imgUrl+item.video" id="video" @click="getVideo"></video>
 								<img v-if="isShowVideo" src="../../assets/images/ic-ownbrand-videobutton@2x.png" class="video-play-btn"  @click="getVideo"/>
-							</div> -->
+							</div>
 
 							<div class="new-info">
 								<h1>{{item.title}}</h1>

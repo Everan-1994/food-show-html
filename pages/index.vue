@@ -140,33 +140,12 @@
 					},
 					observer: true, //修改swiper自己或子元素时，自动初始化swiper
 					observeParents: true, //修改swiper的父元素时，自动初始化swiper
-					// loop: true,
-					// autoplay: {
-					// 	delay: 4000,
-					// 	disableOnInteraction: false
-					// }
-				},
-				swiperimg: [{
-						url: '#',
-						imagePath: require('~/assets/images/pic_home_logo11.png')
-					},
-					{
-						url: '#',
-						imagePath: require('~/assets/images/pic_home_logo12.png')
-					},
-					{
-						url: '#',
-						imagePath: require('~/assets/images/pic_home_logo9.png')
-					},
-					{
-						url: '#',
-						imagePath: require('~/assets/images/pic_home_logo10.png')
-					},
-					{
-						url: '#',
-						imagePath: require('~/assets/images/pic_home_logo6.png')
+					loop: true,
+					autoplay: {
+						delay: 4000,
+						disableOnInteraction: false
 					}
-				],
+				},
 				swiper: {
 					watchSlidesProgress: true,
 					centeredSlides: true,
