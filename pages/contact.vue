@@ -129,7 +129,6 @@
 			function documentHandler(e) {
 				// 这里判断点击的元素是否是本身，是本身，则返回
 				if (el.contains(e.target)) {
-					console.log(1)
 					return false;
 				}
 				// 判断指令中是否绑定了函数
@@ -353,7 +352,7 @@
 						let that = this
 						setTimeout(function(){
 							that.success = false
-						},2000)
+						},1500)
 					}
 					
 				})
