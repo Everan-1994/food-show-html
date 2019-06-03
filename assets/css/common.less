@@ -267,6 +267,58 @@ position: relative;
 	width: 100%;
 	margin: 0 auto;
 }
+.page-box{
+	text-align: center;
+	padding-top: 75px;
+	.num-list{
+		font-size: 16px;
+		color: #DDDDDD;
+		border: 1px solid #DDDDDD;
+		width: 30px;
+		height: 30px;
+		line-height: 30px;
+		text-align: center;
+		display: inline-block;
+		margin-left: 2px;
+		margin-right: 2px;
+		vertical-align: middle;
+	}
+	.active{
+		background: #FF9513;
+		color: #fff;
+		border: 1px solid #FF9513;
+	}
+	.prev-box,.next-box{
+		color: #CCCCCC;
+		position: relative;
+	}
+	.prev-box:after{
+		content: "";
+		width: 6px;
+		height: 6px;
+		border-top: 1px solid #ccc;
+		border-left: 1px solid #ccc;
+		transform: rotate(-45deg);
+		position: absolute;
+		top: 50%;
+		margin-top: -3px;
+		left: 50%;
+		margin-left: -3px;
+	}
+	.next-box:after{
+		content: "";
+		width: 6px;
+		height: 6px;
+		border-top: 1px solid #ccc;
+		border-right: 1px solid #ccc;
+		transform: rotate(45deg);
+		position: absolute;
+		top: 50%;
+		margin-top: -3px;
+		left: 50%;
+		margin-left: -3px;
+	}
+}
 @media (max-width:1920px){
 	.food-mask .food-mask-box .mask-title{
 		padding-bottom: 15px;

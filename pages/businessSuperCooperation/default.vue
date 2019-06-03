@@ -67,8 +67,8 @@
 					</div>
 					
 				</div>
-				<div class="swiper-button-prev" style="background-image: url('/images/ic_home_back.png') !important;"></div>
-				<div class="swiper-button-next" style="background-image: url('/images/ic_home_next.png') !important;"></div>
+				<div class="swiper-button-prev" style="background-image: url('/images/ic_arrowhead.png') !important;"></div>
+				<div class="swiper-button-next" style="background-image: url('/images/ic_arrowhead.png') !important;transform: rotate(180deg);"></div>
 					
 			</div>
 		

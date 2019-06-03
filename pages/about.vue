@@ -17,7 +17,7 @@
 
 						<div  :class="index==5 ?'about-info-list current':'about-info-list'">
 							<h1 class="common-problem">常见问题</h1>
-							<div class="problem-box" v-for="(item,index) in aboutArr.common_problem" :key="index" @click="getProblem(index)" :class="problemIndex==index ? 'problem-box open' : 'problem-box' ">
+							<div class="problem-box" v-for="(item,index) in aboutArr.common_problem.data" :key="index" @click="getProblem(index)" :class="problemIndex==index ? 'problem-box open' : 'problem-box' ">
 								<div class="problem-name">
 									Q:{{item.question}}
 									<div class="problem-btn"></div>
@@ -25,6 +25,12 @@
 								<div class="problem-answer">
 									A:{{item.answer}}
 								</div>
+							</div>
+							
+							<div class="page-box">
+								<div class="prev-box num-list" @click="getPrev"></div>
+								<div :class="page==count ? 'num-list active' : 'num-list' " v-for="count in aboutArr.common_problem.last_page">{{count}}</div>
+								<div class="next-box num-list" @click="getNext"></div>
 							</div>
 						</div>
 	 
@@ -57,16 +63,23 @@
 		getRequest
 	} from '~/plugins/vue-axios';
 
+	const getData = (params) => {
+		return new Promise(resolve => {
+			getRequest(`us_problem`, params).then(res => {
+				resolve(res.data)
+			})
+		})
+	}
 	export default {
 		async asyncData({
 			params,
 			error
 		}) {
-			let about = await getRequest(`us_problem`);
+			let about = await getRequest(`us_problem?page=1&pageSize:6`);
 			let footer = await getRequest(`footer`);
-			
 			return {
 				aboutArr: about.data,
+				lastpage:about.data.common_problem.last_page,
 				footers: footer.data
 			};
 
@@ -76,6 +89,10 @@
 				navActive:'about',
 				index:1,
 				problemIndex:0,
+				pageSize:6,
+				page:1,
+				is_end:false,
+				is_start:false
 			};
 		},
 		created() {
@@ -92,6 +109,64 @@
             },
 			getProblem(index){
 				this.problemIndex = index
+			},
+			getPage(i){
+				let data = {
+					page:i,
+					pageSize:this.pageSize
+				}
+				
+				getData(data).then(res=>{
+					this.aboutArr = res.data
+					this.page = i
+					
+					
+					
+				})
+			},
+			getPrev(){
+				if(this.page>1){
+					let data = {
+						page:this.page-1,
+						pageSize:this.pageSize
+					}
+					
+					getData(data).then(res=>{
+						this.aboutArr = res.data
+						if(this.page == 2){
+							this.page = 1
+							this.is_start = false
+							this.is_end = false
+							return false
+						}else{
+							this.page = this.page - 1
+						}
+						
+					})
+				}
+				
+			},
+			getNext(){
+				if(this.page<this.lastpage){
+					const data = {
+						page:this.page +1,
+						pageSize:this.pageSize
+					}
+					
+					getData(data).then(res=>{
+						this.aboutArr = res.data
+						if(res.total<(this.page+1)*this.pageSize){
+							this.page=this.page+1
+							this.is_end = true
+						}else{
+							this.page = this.page+1
+						}
+						this.is_start = true
+						
+					})
+				}
+				
+				
 			}
 		}
 	};

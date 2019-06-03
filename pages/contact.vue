@@ -318,24 +318,35 @@
 
 				if (user_name == "") {
 					this.toast_text = "请输入姓名"
+					return false
 				} else if (user_email == "") {
 					this.toast_text = "请输入邮箱"
+					return false
 				} else if (!(email_reg.test(user_email))) {
 					this.toast_text = "请输入正确的邮箱"
+					return false
 				} else if (user_tel == "") {
 					this.toast_text = "请输入手机号"
+					return false
 				} else if (!(tel_reg.test(user_tel))) {
 					this.toast_text = "请输入正确的手机号"
+					return false
 				} else if (user_address == "") {
 					this.toast_text = "请输入地址"
+					return false
 				} else if (title == "") {
 					this.toast_text = "请输入标题"
+					return false
 				} else if (user_message == "") {
 					this.toast_text = "请输入留言"
-				} else {
+					return false
+				} else if (images_url.length==0) {
+					this.toast_text = "请上传图片"
+					return false
+				} 
+				else {
 					this.toast_text = " "
 				}
-				console.log(images_url)
 				const data = {
 					title: title,
 					user_tel: user_tel,
