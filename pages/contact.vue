@@ -331,7 +331,7 @@
 				} else if (!(tel_reg.test(user_tel))) {
 					this.toast_text = "请输入正确的手机号"
 					return false
-				} else if (user_address == "") {
+				} else if (user_address  == "") {
 					this.toast_text = "请输入地址"
 					return false
 				} else if (title == "") {
@@ -340,10 +340,11 @@
 				} else if (user_message == "") {
 					this.toast_text = "请输入留言"
 					return false
-				} else if (images_url.length==0) {
-					this.toast_text = "请上传图片"
-					return false
 				} 
+				// else if (images_url.length==0) {
+				// 	this.toast_text = "请上传图片"
+				// 	return false
+				// } 
 				else {
 					this.toast_text = " "
 				}

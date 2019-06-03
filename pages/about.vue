@@ -29,7 +29,7 @@
 							
 							<div class="page-box">
 								<div class="prev-box num-list" @click="getPrev"></div>
-								<div :class="page==count ? 'num-list active' : 'num-list' " v-for="count in aboutArr.common_problem.last_page">{{count}}</div>
+								<div :class="page==count ? 'num-list active' : 'num-list' " v-for="count in aboutArr.common_problem.last_page" @click="getPage(count)">{{count}}</div>
 								<div class="next-box num-list" @click="getNext"></div>
 							</div>
 						</div>
@@ -75,7 +75,7 @@
 			params,
 			error
 		}) {
-			let about = await getRequest(`us_problem?page=1&pageSize:6`);
+			let about = await getRequest(`us_problem?page=1&pageSize=6`);
 			let footer = await getRequest(`footer`);
 			return {
 				aboutArr: about.data,
@@ -117,7 +117,7 @@
 				}
 				
 				getData(data).then(res=>{
-					this.aboutArr = res.data
+					this.aboutArr = res
 					this.page = i
 					
 					
@@ -132,7 +132,7 @@
 					}
 					
 					getData(data).then(res=>{
-						this.aboutArr = res.data
+						this.aboutArr = res
 						if(this.page == 2){
 							this.page = 1
 							this.is_start = false
@@ -154,7 +154,7 @@
 					}
 					
 					getData(data).then(res=>{
-						this.aboutArr = res.data
+						this.aboutArr = res
 						if(res.total<(this.page+1)*this.pageSize){
 							this.page=this.page+1
 							this.is_end = true
