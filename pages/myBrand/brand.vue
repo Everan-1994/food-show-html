@@ -71,8 +71,8 @@
 					<div v-swiper:swiper="swiperOption1" ref="swiper" class="box right-swper">
 						<div class="swiper-wrapper">
 							<div class="swiper-slide brand-swipers" v-for="(item,index) in brand_info.picture_video" :key="index">								
-								<div v-if='item.type=1' class="box">
-									<img :src="imgUrl+item.url"  v-if='item.type=1'/>
+								<div v-if='item.type==1' class="box">
+									<img :src="imgUrl+item.url"/>
 								</div>
 								<div v-else class="box">
 									<video class="brand-video" :src="imgUrl+item.url" id="video" @click="getVideo"></video>
