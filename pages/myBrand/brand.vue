@@ -70,8 +70,15 @@
 				<div class="right-brand-instroduct">
 					<div v-swiper:swiper="swiperOption1" ref="swiper" class="box right-swper">
 						<div class="swiper-wrapper">
-							<div class="swiper-slide" v-for="(item,index) in brand_info.picture_video" :key="index">
-								<img :src="imgUrl+item.url" />
+							<div class="swiper-slide brand-swipers" v-for="(item,index) in brand_info.picture_video" :key="index">								
+								<div v-if='item.type=1' class="box">
+									<img :src="imgUrl+item.url"  v-if='item.type=1'/>
+								</div>
+								<div v-else class="box">
+									<video class="brand-video" :src="imgUrl+item.url" id="video" @click="getVideo"></video>
+									<img v-if="isShowVideo" src="~/assets/images/ic-ownbrand-videobutton@2x.png" class="video-play-btn"  @click="getVideo"/>
+								</div>
+							
 							</div>
 							
 						</div>
@@ -158,7 +165,8 @@
 						nextEl: '.swiper-button-next',
 						prevEl: '.swiper-button-prev',
 					}
-				}
+				},
+				isShowVideo:true
 			};
 		},
 		created() {
@@ -176,7 +184,26 @@
 				console.log(this.$refs.swipers.swiper)
 				//this.activeIndexs = this.$refs.swipers.swiper.realIndex
 				console.log(this.$refs.swipers.swiper.realIndex)
-			}
+			},
+			getVideo() {
+				let myVideo = document.querySelector(".brand-video");							
+				if(this.isShowVideo){
+					myVideo.play()
+					this.isShowVideo = false;
+				}else{
+					myVideo.pause()
+					this.isShowVideo = true;
+				}
+				
+				let that = this
+				myVideo.addEventListener('play', function() {
+					that.isShowVideo = false;
+				});
+				myVideo.addEventListener('pause', function() {
+					that.isShowVideo = true;
+				})
+				
+			},
 		}
 	};
 </script>

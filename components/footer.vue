@@ -9,19 +9,19 @@
 							<nuxt-link to='/'>首页</nuxt-link>
 						</li>
 						<li>
-							<nuxt-link to='#'>品牌合作</nuxt-link>
+							<nuxt-link to='/brand-cooperation'>品牌合作</nuxt-link>
 						</li>
 						<li>
-							<nuxt-link to='#'>超商合作</nuxt-link>
+							<nuxt-link to='/businessSuperCooperation/default'>商超合作</nuxt-link>
 						</li>
 						<li>
-							<nuxt-link to='#'>自有品牌</nuxt-link>
+							<nuxt-link to='/myBrand/brand'>自有品牌</nuxt-link>
 						</li>
 						<li>
-							<nuxt-link to='#'>新闻中心</nuxt-link>
+							<nuxt-link to='/news/0'>新闻中心</nuxt-link>
 						</li>
 						<li>
-							<nuxt-link to='#'>关于我们</nuxt-link>
+							<nuxt-link to='/about'>关于我们</nuxt-link>
 						</li>
 					</ul>
 				</div>

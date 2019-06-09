@@ -156,7 +156,7 @@
 		methods: {
 
 			getVideo() {
-				let myVideo = document.getElementById("video");			
+				let myVideo =  document.querySelector(".video-box");		
 				if(this.isShowVideo){
 					myVideo.play()
 					this.isShowVideo = false;
