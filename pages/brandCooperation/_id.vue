@@ -15,8 +15,8 @@
 					<h1 class="super-title">{{brand.name}}</h1>
 					<main v-html="brand.content">
 					</main>
-					<div class="new-video">
-						<video class="video-box" src="https://www.runoob.com/try/demo_source/movie.mp4" id="video" @click="getVideo"></video>
+					<div class="new-video" v-if="brand.video != null">
+						<video class="video-box" :src="imgUrl+brand.video" id="video" @click="getVideo"></video>
 						<img v-if="isShowVideo" src="~/assets/images/ic-ownbrand-videobutton@2x.png" class="video-play-btn"  @click="getVideo"/>
 					</div>
 				</div>
@@ -57,6 +57,7 @@
 		},
 		data() {
 			return {
+				imgUrl: process.env.imgUrl,
 				navActive: 'brand-cooperation',
 				id: "",
 				isShowVideo:true
