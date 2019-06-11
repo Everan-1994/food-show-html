@@ -15,7 +15,7 @@
 										<img :src="imgUrl+item[0].logo" />
 									</div>
 									<h2 class="name">{{item[0].name}}</h2>
-									<p class="desc">为您提供高精度的语音识别服务，融合百度领先的自然语言处理技术 支持多场景智能语音交互</p>
+									<p class="desc">{{item[0].intro}}</p>
 									<button class="c-btn">
 										查看详情
 										<span class="arrow"></span>
@@ -28,7 +28,7 @@
 										<img :src="imgUrl+item[1].logo" />
 									</div>
 									<h2 class="name">{{item[1].name}}</h2>
-									<p class="desc">为您提供高精度的语音识别服务，融合百度领先的自然语言处理技术 支持多场景智能语音交互</p>
+									<p class="desc">{{item[1].intro}}</p>
 									<button class="c-btn">
 										查看详情
 										<span class="arrow"></span>
@@ -41,7 +41,7 @@
 										<img :src="imgUrl+item[2].logo" />
 									</div>
 									<h2 class="name">{{item[2].name}}</h2>
-									<p class="desc">为您提供高精度的语音识别服务，融合百度领先的自然语言处理技术 支持多场景智能语音交互</p>
+									<p class="desc">{{item[2].intro}}</p>
 									<button class="c-btn">
 										查看详情
 										<span class="arrow"></span>
@@ -54,7 +54,7 @@
 										<img :src="imgUrl+item[3].logo" />
 									</div>
 									<h2 class="name">{{item[3].name}}</h2>
-									<p class="desc">为您提供高精度的语音识别服务，融合百度领先的自然语言处理技术 支持多场景智能语音交互</p>
+									<p class="desc">{{item[3].intro}}</p>
 									<button class="c-btn">
 										查看详情
 										<span class="arrow"></span>

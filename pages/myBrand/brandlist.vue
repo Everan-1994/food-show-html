@@ -76,6 +76,8 @@
 			
 			return {
 				ownArr: own_brands.data.data,
+				last_page:own_brands.data.last_page,
+				is_end:own_brands.data.last_page>1 ? false : true,
 				footers: footer.data
 			};
 		},
@@ -85,7 +87,6 @@
 				navActive: 'brand',
 				pageSize:6,
 				page:1,
-				is_end:false,
 				is_start:false
 			};
 		},
@@ -121,18 +122,20 @@
 					page:this.page +1,
 					pageSize:this.pageSize
 				}
+				if(this.page<this.last_page){
+					getData(data).then(res=>{
+						this.ownArr = res.data
+						if(this.page>=this.last_page){
+							this.page=this.page+1
+							this.is_end = true
+						}else{
+							this.page = this.page+1
+						}
+						this.is_start = true
+						
+					})
+				}
 				
-				getData(data).then(res=>{
-					this.ownArr = res.data
-					if(res.total<(this.page+1)*this.pageSize){
-						this.page=this.page+1
-						this.is_end = true
-					}else{
-						this.page = this.page+1
-					}
-					this.is_start = true
-					
-				})
 				
 			}
 		}

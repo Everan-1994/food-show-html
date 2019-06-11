@@ -14,6 +14,10 @@
 				<div class="super-box">
 					<h1 class="super-title">{{superArr.name}} </h1>
 					<main v-html="superArr.content"></main>
+					
+					<div class="img">
+						<img :src="imgUrl+item" v-for="item in superArr.images_url " :key="item" />
+					</div>
 				</div>
 			</div>
 			
@@ -50,6 +54,7 @@
 		},
 		data() {
 			return {
+				imgUrl: process.env.imgUrl,
 				navActive: 'businessSuperCooperation',
 				id:""
 				
@@ -71,4 +76,15 @@
 
 
 <style>
+	main{
+		min-height: auto;
+	}
+	.img{
+		margin-top: 30px;;
+		width: 100%;
+	}
+	.img img{
+		max-width: 100%;
+		height: auto;
+	}
 </style>

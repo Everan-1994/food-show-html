@@ -23,7 +23,7 @@
 					<div class="icon-img">
 						<img src="~/assets/images/pic_honme_titlepic.png" />
 					</div>
-					<h1>他们选择了润昌</h1>
+					<h1>他们选择了润昌隆</h1>
 					<p>品牌种类</p>
 				</div>
 

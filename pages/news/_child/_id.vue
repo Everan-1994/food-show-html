@@ -20,10 +20,10 @@
 			</div>
 			<main v-html="newArr.content"></main>
 			<div class="new-video" v-if="newArr.video != null">
-				<video class="video-box" :src="imgUrl+newArr.myVideo" id="video" @click="getVideo"></video>
+				<video class="video-box" :src="imgUrl+newArr.video" id="video" @click="getVideo"></video>
 				<img v-if="isShowVideo" src="~/assets/images/ic-ownbrand-videobutton@2x.png" class="video-play-btn"  @click="getVideo"/>
 			</div>
-			<div class="end">EDN</div>
+			<div class="end">END</div>
 		</div>
 		<Footer :data="footers" />
 	</div>
@@ -95,5 +95,7 @@
 </script>
 
 <style>
-
+main img{
+	max-width: 100%;
+}
 </style>

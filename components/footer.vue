@@ -26,7 +26,7 @@
 					</ul>
 				</div>
 				<div class="footer-info">
-					<img src="../assets/images/pic_foot_logo.png" />
+					<img :src="imgUrl+data.logo" />
 					<p class="name">{{data.name}}</p>
 					<p class="contact">
 						企业热线 : {{data.tel}}

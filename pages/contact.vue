@@ -123,30 +123,7 @@
 		uploadFileRequest
 	} from '~/plugins/vue-axios';
 
-	const clickoutside = {
-		// 初始化指令
-		bind(el, binding, vnode) {
-			function documentHandler(e) {
-				// 这里判断点击的元素是否是本身，是本身，则返回
-				if (el.contains(e.target)) {
-					return false;
-				}
-				// 判断指令中是否绑定了函数
-				if (binding.expression) {
-					// 如果绑定了函数 则调用那个函数，此处binding.value就是handleClose方法
-					binding.value(e);
-				}
-			}
-			// 给当前元素绑定个私有变量，方便在unbind中可以解除事件监听
-			el.__vueClickOutside__ = documentHandler;
-			document.addEventListener('click', documentHandler);
-		},
-		unbind(el, binding) {
-			// 解除事件监听
-			document.removeEventListener('click', el.__vueClickOutside__);
-			delete el.__vueClickOutside__;
-		},
-	};
+	
 	export default {
 		async asyncData({
 			params,
@@ -205,9 +182,7 @@
 
 
 		},
-		directives: {
-			clickoutside
-		},
+		
 		methods: {
 			getClose(e) {
 				const cDom = document.querySelector(".food-mask-box");
@@ -241,10 +216,11 @@
 				this.$refs.my_map.getMap(poit, address)
 			},
 			serach() {
+				var that = this
 				getRequest(`contact_us`, {
 					name: this.value
 				}).then(res => {
-					if (res.length > 0) {
+					if (res.data.length > 0) {						
 						let data = res.data
 						let poit = []
 						poit[0] = data[0].longitude
@@ -255,14 +231,14 @@
 							"address": "地址：" + data[0].address,
 							"tel": "电话：" + data[0].tel
 						}]
-						this.contactArr = data
-						this.defaultCoordinates = poit
-						this.allClinicInformation = address
-						this.$refs.my_map.getMap(poit, address)
+						that.contactArr = data
+						that.defaultCoordinates = poit
+						that.allClinicInformation = address
+						that.$refs.my_map.getMap(poit, address)
 
 					} else {
-						this.no_data = true
-						this.contactArr = []
+						that.no_data = true
+						that.contactArr = []
 					}
 
 				})
@@ -286,10 +262,11 @@
 				}
 				var image = new Image();
 				var vm = this;
-				var leng = file.length;
-				if (leng > 5) {
+				var leng = vm.images.length;
+				if (leng >= 5) {
 					this.toast_text = '最多只能上传5张图片'
 				} else {
+					
 					let formData = new FormData()
 					formData.append('images_url[]',file[0])
 					uploadFileRequest('uploads', formData).then(res => {

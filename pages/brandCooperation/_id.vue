@@ -15,6 +15,10 @@
 					<h1 class="super-title">{{brand.name}}</h1>
 					<main v-html="brand.content">
 					</main>
+					<div class="new-video">
+						<video class="video-box" src="https://www.runoob.com/try/demo_source/movie.mp4" id="video" @click="getVideo"></video>
+						<img v-if="isShowVideo" src="~/assets/images/ic-ownbrand-videobutton@2x.png" class="video-play-btn"  @click="getVideo"/>
+					</div>
 				</div>
 
 
@@ -54,7 +58,8 @@
 		data() {
 			return {
 				navActive: 'brand-cooperation',
-				id: ""
+				id: "",
+				isShowVideo:true
 
 
 			};
@@ -67,7 +72,27 @@
 			Hearder,
 			Footer
 		},
-		methods: {}
+		methods: {
+			getVideo() {
+				let myVideo =  document.querySelector(".video-box");		
+				if(this.isShowVideo){
+					myVideo.play()
+					this.isShowVideo = false;
+				}else{
+					myVideo.pause()
+					this.isShowVideo = true;
+				}
+				
+				let that = this
+				myVideo.addEventListener('play', function() {
+					that.isShowVideo = false;
+				});
+				myVideo.addEventListener('pause', function() {
+					that.isShowVideo = true;
+				})
+				
+			},
+		}
 	};
 </script>
 

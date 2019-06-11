@@ -39,7 +39,7 @@
 						<div class="swiper-wrapper">
 							<div class="swiper-slide" v-for="(item,index) in brand_info.brand_intro" :key="index">
 								<div class="brand-introduction">
-									<h1>{{item.title}}</h1>
+									<h1>品牌介绍</h1>
 									<p>{{item.intro}}</p>
 								</div>
 								<div class="brand-introduction">
