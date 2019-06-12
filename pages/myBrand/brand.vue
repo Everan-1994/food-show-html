@@ -35,7 +35,7 @@
 
 			<div class="brand-introduce">
 				<div class="left-brand-introduce">
-					<div v-swiper:swipers="swiperOption" ref="swipers" class="box">
+					<div v-swiper:swipers="swiperOption" ref="swipers" :class="brand_info.brand_intro.length>1 ? 'box padd' : 'box'">
 						<div class="swiper-wrapper">
 							<div class="swiper-slide" v-for="(item,index) in brand_info.brand_intro" :key="index">
 								<div class="brand-introduction">
@@ -54,15 +54,15 @@
 							
 						</div>
 
-						<div class="swiper-pagination"></div>
-						<div class="swiper-button-prev">
+						<div class="swiper-pagination" v-if="brand_info.brand_intro.length>1"></div>
+						<div class="swiper-button-prev" v-if="brand_info.brand_intro.length>1">
 							<img src="~/assets/images/ic-ownbrand-previous@2x.png" />
 
 						</div>
-						<div class="swiper-button-next">
-							<img src="~/assets/images/ic-ownbrand-next@2x.png" />
+						<div class="swiper-button-next" v-if="brand_info.brand_intro.length>1">
+							<img src="~/assets/images/ic-ownbrand-next@2x.png"  />
 						</div>
-						<div class="brand-introduce-number">
+						<div class="brand-introduce-number" v-if="brand_info.brand_intro.length>1">
 							<span>0{{activeIndexs}}</span> / 0{{brand_info.brand_intro.length}}
 						</div>
 					</div>

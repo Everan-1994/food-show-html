@@ -19,6 +19,9 @@
 				<span>{{newArr.from}}</span>
 			</div>
 			<main v-html="newArr.content"></main>
+			<div class="imgs-box" v-if="newArr.image != null">
+				<img :src="imgUrl+newArr.image" />
+			</div>
 			<div class="new-video" v-if="newArr.video != null">
 				<video class="video-box" :src="imgUrl+newArr.video" id="video" @click="getVideo"></video>
 				<img v-if="isShowVideo" src="~/assets/images/ic-ownbrand-videobutton@2x.png" class="video-play-btn"  @click="getVideo"/>
@@ -96,6 +99,13 @@
 
 <style>
 main img{
+	max-width: 100%;
+}
+.imgs-box{
+	text-align: center;
+	margin-bottom: 30px;
+}
+.imgs-box img{
 	max-width: 100%;
 }
 </style>
