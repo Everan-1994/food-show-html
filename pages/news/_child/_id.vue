@@ -26,6 +26,9 @@
 				<video class="video-box" :src="imgUrl+newArr.video" id="video" @click="getVideo"></video>
 				<img v-if="isShowVideo" src="~/assets/images/ic-ownbrand-videobutton@2x.png" class="video-play-btn"  @click="getVideo"/>
 			</div>
+			<div class="imgs-box" v-if="newArr.detail_image && newArr.detail_image != null">
+				<img :src="imgUrl+newArr.detail_image" />
+			</div>
 			<div class="end">END</div>
 		</div>
 		<Footer :data="footers" />

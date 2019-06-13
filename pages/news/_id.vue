@@ -81,6 +81,7 @@
 						
 
 					</div>
+					<div v-if="newArr.length==0" style="text-align: center;margin-top: 30px;">没有新闻了</div>
 
 				</div>
 
@@ -175,7 +176,8 @@
 				
 			},
 			getSearch() {
-				getRequest(`news_list?keyword=${this.keyWords}`).then(res => {
+				let id = this.$route.params.id
+				getRequest(`news_list?keyword=${this.keyWords}&type=${id}`).then(res => {
 					let data = res.data
 
 					this.newArr = data

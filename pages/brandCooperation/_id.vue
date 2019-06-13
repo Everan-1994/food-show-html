@@ -19,6 +19,9 @@
 						<video class="video-box" :src="imgUrl+brand.video" id="video" @click="getVideo"></video>
 						<img v-if="isShowVideo" src="~/assets/images/ic-ownbrand-videobutton@2x.png" class="video-play-btn"  @click="getVideo"/>
 					</div>
+					<div v-if="brand.image_url != null" class="imgs-warps">
+						<img :src="imgUrl+brand.image_url" />
+					</div>
 				</div>
 
 
@@ -99,4 +102,12 @@
 
 
 <style>
+	.imgs-warps{
+		margin-top: 30px;
+		text-align: center;
+	}
+	.imgs-warps img{
+		max-width: 100%;
+		height: auto;
+	}
 </style>
