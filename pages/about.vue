@@ -13,7 +13,7 @@
 							<h1>{{item.title}}</h1>
 							<div v-html="item.content"></div>
 
-							<div v-swiper:mySwiper1="swiperOption" class="bannerss" ref="mySwiper1" v-if="item.image.length>0">
+							<div v-swiper:mySwiper1="swiperOption" class="bannerss about-swiper" ref="mySwiper1" v-if="item.image.length>0">
 								<div class="swiper-wrapper">
 									<div class="swiper-slide" v-for="(item1,index) in item.image" :key="index">
 											<img :src="imgUrl+item1" />
@@ -118,9 +118,6 @@
 					}
 				},
 			};
-		},
-		created() {
-			console.log(this.imgUrl)
 		},
 		components: {
 			Hearder,
