@@ -103,6 +103,10 @@
 				<p>恭喜你！提交成功！</p>
 			</div>
 		</div>
+		
+		<div class="loading" v-if="loading">
+			<img src="~/assets/images/icon-loading.gif" />
+		</div>
 
 		<img src="/images/pic_contact_pic.png" class="contact-information-bg" />
 	</div>
@@ -166,7 +170,8 @@
 				images: [],
 				toast_text: '',
 				elastic_frame: false,
-				success:false
+				success:false,
+				loading:false
 
 			};
 		},
@@ -246,6 +251,7 @@
 			},
 			fileClick() {
 				document.getElementById('upload_file').click()
+				this.loading = true
 			},
 			delImage: function(index) {
 				this.images.shift(index);
@@ -272,6 +278,7 @@
 					uploadFileRequest('uploads', formData).then(res => {
 						let data = res.data
 						vm.images.push(data) 
+						this.loading = false
 					})
 					// for (let i = 0; i < leng; i++) {
 					// 	var reader = new FileReader();

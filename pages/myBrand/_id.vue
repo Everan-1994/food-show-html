@@ -29,6 +29,9 @@
 					<h3 class="detail-title">产品详情 </h3>
 
 					<div v-html="ownArr.goods_content"></div>
+					<div class="imgs-boxs" v-if="ownArr.detail_img != null">
+						<img :src="imgUrl+ownArr.detail_img" />
+					</div>
 				</div>
 
 			</div>
@@ -96,5 +99,12 @@
 </script>
 
 <style>
-
+.imgs-boxs{
+	text-align: center;
+	margin-top: 30px;
+}
+.imgs-boxs img{
+	max-width: 100%;
+	height: auto;
+}
 </style>
