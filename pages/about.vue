@@ -12,6 +12,17 @@
 						<div :class="index == (i+1) ? 'about-info-list current' : 'about-info-list'" v-for="(item,i) in aboutArr.about_us" :key="i">
 							<h1>{{item.title}}</h1>
 							<div v-html="item.content"></div>
+
+							<div v-swiper:mySwiper1="swiperOption" class="bannerss about-swiper" ref="mySwiper1" v-if="item.image.length>0">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide" v-for="(item1,index) in item.image" :key="index">
+											<img :src="imgUrl+item1" />
+
+									</div>
+								</div>
+								<div class="swiper-pagination"></div>
+							</div>
+
 						</div>
 						
 
@@ -86,17 +97,27 @@
 		},
 		data() {
 			return {
+				imgUrl: process.env.imgUrl,
 				navActive:'about',
 				index:1,
 				problemIndex:0,
 				pageSize:6,
 				page:1,
 				is_end:false,
-				is_start:false
+				is_start:false,
+				swiperOption: {
+					pagination: {
+						el: '.swiper-pagination'
+					},
+					observer: true, //修改swiper自己或子元素时，自动初始化swiper
+					observeParents: true, //修改swiper的父元素时，自动初始化swiper
+					loop: true,
+					autoplay: {
+						delay: 4000,
+						disableOnInteraction: false
+					}
+				},
 			};
-		},
-		created() {
-
 		},
 		components: {
 			Hearder,
@@ -173,5 +194,11 @@
 </script>
 
 <style>
-
+.bannerss{
+	width: 100%;
+}
+.bannerss img{
+	width: 100%;
+	height: auto;
+}
 </style>
