@@ -13,16 +13,16 @@
 							<h1>{{item.title}}</h1>
 							<div v-html="item.content"></div>
 
-							<div v-swiper:mySwiper1="swiperOption" class="bannerss" ref="mySwiper1">
+							<div v-swiper:mySwiper1="swiperOption" class="bannerss" ref="mySwiper1" v-if="item.image.length>0">
 								<div class="swiper-wrapper">
-									<div class="swiper-slide" v-for="item1 in item.image" :key="item.id">
-										
+									<div class="swiper-slide" v-for="(item1,index) in item.image" :key="index">
 											<img :src="imgUrl+item1" />
-										
+
 									</div>
 								</div>
 								<div class="swiper-pagination"></div>
 							</div>
+
 						</div>
 						
 
@@ -97,6 +97,7 @@
 		},
 		data() {
 			return {
+				imgUrl: process.env.imgUrl,
 				navActive:'about',
 				index:1,
 				problemIndex:0,
@@ -119,7 +120,7 @@
 			};
 		},
 		created() {
-
+			console.log(this.imgUrl)
 		},
 		components: {
 			Hearder,
