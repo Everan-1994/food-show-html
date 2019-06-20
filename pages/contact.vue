@@ -11,11 +11,11 @@
 				</div>
 				<div class="address-box">
 					<div class="address-head">
-						门店地址
-						<div class="right-search">
+						公司地址
+						<!-- <div class="right-search">
 							<input type="text" placeholder="搜索" v-model="value" />
 							<img src="~/assets/images/ic_news_search1@2x.png" @click="serach" />
-						</div>
+						</div> -->
 					</div>
 					<div class="address-info">
 						<div class="address-left">
@@ -47,54 +47,59 @@
 			</div>
 		</div>
 		<Footer :data="footers" />
-		<div class="food-mask" v-if="elastic_frame" @click="getClose">
-			<div class="food-mask-box">
-				<h1 class="mask-title">联络我们</h1>
-				<div class="form-input">
-					<div class="input-list">
-						<label>姓名：</label>
-						<input placeholder="您的姓名（必填）" v-model="name" />
-					</div>
-					<div class="input-list">
-						<label>邮箱：</label>
-						<input placeholder="您的邮箱" v-model="mailbox" />
-					</div>
-					<div class="input-list">
-						<label>电话：</label>
-						<input placeholder="您的电话号码" v-model="tel" />
-					</div>
-				</div>
-				<div class="input-list2 input-list">
-					<label>地址：</label>
-					<input placeholder="您的详细地址" v-model="address" />
-				</div>
-				<div class="input-list2 input-list">
-					<label>标题：</label>
-					<input placeholder="标题" v-model="title" />
-				</div>
-				<div class="input-list2 input-list">
-					<label>留言：</label>
-					<textarea placeholder="您的留言（必填）" v-model="message"></textarea>
-				</div>
-
-				<div class="uplod-img">
-					<div class="uplod-img-list" v-if="images.length >0" v-for="(item,index) in images">
-						<img :src="imgUrl + item" class="img" />
-						<img src="../assets/images/pic_contact_delet.png" class="delete-img" @click='delImage(index)' />
-					</div>
-					<div class="add">
-						<div @click="fileClick">
-							<img src="~/assets/images/pic_contact_add.png" />
-							<input type="file" id="upload_file" ref="file" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" class="upload-input"
-							 @change="onFileChange" />
+		<div>
+			
+			<div class="food-mask" v-if="elastic_frame">
+				<div class="food-mask-box">
+					<div class="close" @click="getright"></div>
+					<h1 class="mask-title">联络我们</h1>
+					<div class="form-input">
+						<div class="input-list">
+							<label>姓名：</label>
+							<input placeholder="您的姓名（必填）" v-model="name" />
 						</div>
-						<p>（{{images.length}}/5)</p>
+						<div class="input-list">
+							<label>邮箱：</label>
+							<input placeholder="您的邮箱" v-model="mailbox" />
+						</div>
+						<div class="input-list">
+							<label>电话：</label>
+							<input placeholder="您的电话号码" v-model="tel" />
+						</div>
 					</div>
-
+					<div class="input-list2 input-list">
+						<label>地址：</label>
+						<input placeholder="您的详细地址" v-model="address" />
+					</div>
+					<div class="input-list2 input-list">
+						<label>标题：</label>
+						<input placeholder="标题" v-model="title" />
+					</div>
+					<div class="input-list2 input-list">
+						<label>留言：</label>
+						<textarea placeholder="您的留言（必填）" v-model="message"></textarea>
+					</div>
+			
+					<div class="uplod-img">
+						<div class="uplod-img-list" v-if="images.length >0" v-for="(item,index) in images">
+							<img :src="imgUrl + item" class="img" />
+							<img src="../assets/images/pic_contact_delet.png" class="delete-img" @click='delImage(index)' />
+						</div>
+						<div class="add">
+							<div @click="fileClick">
+								<img src="~/assets/images/pic_contact_add.png" />
+								<input type="file" id="upload_file" ref="file" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" class="upload-input"
+								 @change="onFileChange" />
+							</div>
+							<p>（{{images.length}}/5)</p>
+						</div>
+			
+					</div>
+					<div class="toast">{{toast_text}}</div>
+					<button class="contact-submit" @click="getSubmit">提交</button>
 				</div>
-				<div class="toast">{{toast_text}}</div>
-				<button class="contact-submit" @click="getSubmit">提交</button>
 			</div>
+			
 		</div>
 		
 		<div class="food-mask" v-show="success">
@@ -189,6 +194,11 @@
 		},
 		
 		methods: {
+			getright(){
+				
+				this.elastic_frame = false
+				console.log(this.elastic_frame)
+			},
 			getClose(e) {
 				const cDom = document.querySelector(".food-mask-box");
 				const tDom = e.target;

@@ -3,8 +3,8 @@
 		<Hearder :navActive='navActive' />
 		<div class="brand-box-warp">
 			<div class="brand-box">
-				<h1 class="brand-title">自有品牌</h1>
-				<p class="brand-desc">lots of fun</p>
+				<h1 class="brand-title">LOTS OF FUN</h1>
+				<p class="brand-desc">&nbsp;</p>
 				<div class="brand-product-group">
 					<div class="brand-product-list" v-for="item in ownArr" :data-id="item.id" :key="item.id">
 						<nuxt-link :to="'/myBrand/'+item.id" class="warp">

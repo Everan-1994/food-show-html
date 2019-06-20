@@ -1578,11 +1578,13 @@ main{
 	}
 	.address-info{
 		padding: 50px;
-		height: 650px;
+		min-height: 650px;
 		display: flex;
 		.address-left{
 			max-width: 390px;
 			min-width: 390px;
+			max-height: 660px;
+			overflow: auto;
 			padding-right: 24px;
 			.address-left-list{
 				padding: 20px;
@@ -1611,7 +1613,6 @@ main{
 		}
 		.address-right{
 			width: 810px;
-			background: #ccc;
 		}
 	}
 }

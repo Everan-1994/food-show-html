@@ -12,7 +12,7 @@
 					<nuxt-link to="/businessSuperCooperation/default">商超合作</nuxt-link>
 				</li>
 				<li :class="navActive == 'brand' ? 'active' : ''">
-					<nuxt-link to="/myBrand/brand">自有品牌</nuxt-link>
+					<nuxt-link to="/myBrand/brand">Lots of fun</nuxt-link>
 				</li>
 			</ul>
 			<div class="logo-center">

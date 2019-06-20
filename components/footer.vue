@@ -15,7 +15,7 @@
 							<nuxt-link to='/businessSuperCooperation/default'>商超合作</nuxt-link>
 						</li>
 						<li>
-							<nuxt-link to='/myBrand/brand'>自有品牌</nuxt-link>
+							<nuxt-link to='/myBrand/brand'>Lots of fun</nuxt-link>
 						</li>
 						<li>
 							<nuxt-link to='/news/0'>新闻中心</nuxt-link>

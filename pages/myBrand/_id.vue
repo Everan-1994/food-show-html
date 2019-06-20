@@ -7,7 +7,7 @@
 				<p class="brand-desc">Extruded Pellet</p>
 
 				<div class="crumbs">
-					<nuxt-link to='/myBrand/brand'>自有品牌</nuxt-link>
+					<nuxt-link to='/myBrand/brand'>Lots of fun</nuxt-link>
 					<nuxt-link to='/myBrand/brandlist'>产品列表</nuxt-link>
 					<nuxt-link :to='id'>产品详情</nuxt-link>
 				</div>

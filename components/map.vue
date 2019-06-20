@@ -111,7 +111,7 @@
 <style scoped>
 	.XSDFXPage {
 		width: 100%;
-		height: 550px;
+		height: 500px;
 		overflow: hidden;
 		margin: 0px auto;
 		font-family: "微软雅黑";
