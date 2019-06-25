@@ -1,6 +1,6 @@
 <template>
 	<div  class="min-width">
-		<Hearder />
+		
 		<nuxt />
 		
 	</div>

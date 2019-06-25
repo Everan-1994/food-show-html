@@ -81,7 +81,7 @@
 						
 
 					</div>
-					<div v-if="newArr.length==0" style="text-align: center;margin-top: 30px;">没有新闻了</div>
+					<!-- <div v-if="newArr.length==0" style="text-align: center;margin-top: 30px;">没有新闻了</div> -->
 
 				</div>
 

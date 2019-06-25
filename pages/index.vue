@@ -1,5 +1,6 @@
 <template>
 	<div>
+		<Hearder />
 		<div class="banner-warp">
 			<div v-swiper:mySwiper1="swiperOption" class="banner" ref="mySwiper1">
 				<div class="swiper-wrapper">
