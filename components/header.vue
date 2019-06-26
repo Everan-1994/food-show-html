@@ -25,10 +25,10 @@
 					<nuxt-link to="/news/0">新闻中心</nuxt-link>
 				</li>
 				<li :class="navActive == 'about' ? 'active' : ''">
-					<nuxt-link to="/aboutUs">关于我们</nuxt-link>
+					<a href="/aboutUs">关于我们</a>
 				</li>
 				<li :class="navActive == 'newTest' ? 'active' : ''">
-					<nuxt-link to="/newTest">测试页面</nuxt-link>
+					<a href="/newTest">测试页面</a>
 				</li>
 				<li :class="navActive == 'contact' ? 'active' : ''">
 					<nuxt-link to="/contact">联系我们</nuxt-link>
