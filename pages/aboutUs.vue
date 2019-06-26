@@ -5,10 +5,8 @@
 			<div class="brand-box">
 				<h1 class="brand-title">关于我们</h1>
 				<p class="brand-desc">About us</p>
-				
-				<div style="height: 500px;"></div>
 
-				<!-- <div class="about-content">
+				<div class="about-content">
 					<img src="~/assets/images/pic_about_leaf@2x.png" class="about-yezi" />
 					<div class="about-info-box">
 						<div :class="index == (i+1) ? 'about-info-list current' : 'about-info-list'" v-for="(item,i) in aboutArr.about_us"
@@ -60,7 +58,7 @@
 					</div>
 					<img src="../assets/images/pic_about_bg1@2x.png" class="about-posi2" />
 				</div>
- -->
+
 			</div>
 
 			<img src="../assets/images/pic_about_pic@2x.png" class="about-posi1" />
