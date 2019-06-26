@@ -27,9 +27,6 @@
 				<li :class="navActive == 'about' ? 'active' : ''">
 					<a href="/aboutUs">关于我们</a>
 				</li>
-				<li :class="navActive == 'newTest' ? 'active' : ''">
-					<a href="/newTest">测试页面</a>
-				</li>
 				<li :class="navActive == 'contact' ? 'active' : ''">
 					<nuxt-link to="/contact">联系我们</nuxt-link>
 				</li>

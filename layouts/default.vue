@@ -24,7 +24,7 @@
 
 		},
 		mounted() {
-			this.getIsIe()
+			
 		},
 		methods: {
 			getIsIe() {
