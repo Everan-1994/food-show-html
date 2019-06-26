@@ -21,7 +21,7 @@
 							<nuxt-link to='/news/0'>新闻中心</nuxt-link>
 						</li>
 						<li>
-							<nuxt-link to='/about'>关于我们</nuxt-link>
+							<nuxt-link to='/aboutUs'>关于我们</nuxt-link>
 						</li>
 					</ul>
 				</div>
