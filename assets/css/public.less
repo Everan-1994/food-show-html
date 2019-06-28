@@ -46,7 +46,7 @@ a:hover,a:active{text-decoration:none;color:#FF9513;}
 }
 .header{
 	background: #FF9513;
-	width: 100%;
+	min-width: 1366px;
 	height: 75px;
 	line-height: 75px;
 	margin-top: 51px;
@@ -394,14 +394,24 @@ a:hover,a:active{text-decoration:none;color:#FF9513;}
  // 自有品牌
  .brand-box-warp{
 	 background-image: url(/images/pic_top_pic@2x.png);
-	 background-position: left top;
+	 background-position: center top;
 	 background-repeat: no-repeat;
-	 background-size: contain;
+	 background-size: 100% 600px;
 	 position: relative;
 	 overflow: hidden;
+	 min-height: 600px;
+ }
+ .big-bg{
+	  background-image: url(/images/pic_background.png);
+	 background-position: center top;
+	 background-repeat: no-repeat;
+	 background-size: 100% 800px;
+	 position: relative;
+	 overflow: hidden;
+	 min-height: 800px;
  }
  .brand-box{
-	 padding-top: 280px;
+	 padding-top: 265px;
 	 text-align: center;
 	 position: relative;
 	 width: 1200px;
@@ -420,72 +430,83 @@ a:hover,a:active{text-decoration:none;color:#FF9513;}
 		 line-height: 58px;
 		 text-transform: uppercase;
 	 }
-	 .brand-product-group{
-		 width: 1200px;
-		 margin: 0 auto;
-		 margin-top: 180px;
-		 display: flex;
-		 .brand-product-list{
-			 padding-left: 35px;
-			 padding-right: 35px;
-			 width: 33.3%;
-			 min-width: 33.3%;
-			 .warp{
-				display: block;
-				box-shadow:0px 2px 20px 0px rgba(0,0,0,0.18);
-				border-radius:20px;
-				position: relative;
-				height: 412px;
-				background: #fff;
-				z-index: 10;
-				.img{
-					position: absolute;
-					top: -120px;
-					width: 180px;
-					margin: 0px auto 0;
-					left: 50%;
-					margin-left: -90px;
-					img{
-						width: 100%;
-						height: auto;
-					}
-				}
-				.brand-product-info{
-					padding-left: 40px;
-					padding-right: 40px;
-					padding-top: 200px;
-					.product-name{
-						color: @color;
-						font-size: 18px;
-						font-weight: bold;
-						margin-bottom: 5px;
-						text-align: center;
-					}
-					.product-desc{
-						text-align: center;
-						font-size: 14px;
-						line-height: 26px;
-						height: 90px;
-						overflow: hidden;
-						color: #4a4a4a;
-					}
-					.detail-btn{
-						position: absolute;
-						bottom: -39px;
-						left: 50%;
-						margin-left: -39px;
-						width: 79px;
-						height: 79px;						
-							img{
-								width: 79px;
-								height: 79px;
-							}
-						
-					}
-				}
-			 }
-		 }
-	 }
+	 
+ }
+ .w1100{
+	 width: 1100px;
+	 margin: 0 auto;
+	 position: relative;
+ }
+ .brand-content{
+	  width: 1200px;
+	 margin: 0 auto;
+	 position: relative;
+ }
+ .brand-product-group{
+ 		 width: 1200px;
+ 		 margin: 0 auto;
+ 		 margin-top: -90px;
+ 		 display: flex;
+ 		 .brand-product-list{
+ 			 padding-left: 35px;
+ 			 padding-right: 35px;
+ 			 width: 33.3%;
+ 			 min-width: 33.3%;
+ 			 .warp{
+ 				display: block;
+ 				box-shadow:0px 2px 20px 0px rgba(0,0,0,0.18);
+ 				border-radius:20px;
+ 				position: relative;
+ 				height: 412px;
+ 				background: #fff;
+ 				z-index: 10;
+ 				.img{
+ 					position: absolute;
+ 					top: -120px;
+ 					width: 180px;
+ 					margin: 0px auto 0;
+ 					left: 50%;
+ 					margin-left: -90px;
+ 					img{
+ 						width: 100%;
+ 						height: auto;
+ 					}
+ 				}
+ 				.brand-product-info{
+ 					padding-left: 40px;
+ 					padding-right: 40px;
+ 					padding-top: 200px;
+ 					.product-name{
+ 						color: @color;
+ 						font-size: 18px;
+ 						font-weight: bold;
+ 						margin-bottom: 5px;
+ 						text-align: center;
+ 					}
+ 					.product-desc{
+ 						text-align: center;
+ 						font-size: 14px;
+ 						line-height: 26px;
+ 						height: 90px;
+ 						overflow: hidden;
+ 						color: #4a4a4a;
+ 					}
+ 					.detail-btn{
+ 						position: absolute;
+ 						bottom: -39px;
+ 						left: 50%;
+ 						margin-left: -39px;
+ 						width: 79px;
+ 						height: 79px;						
+ 							img{
+ 								width: 79px;
+ 								height: 79px;
+ 							}
+ 						
+ 					}
+ 				}
+ 			 }
+ 		 }
  }
  .more-brand{
 	 padding-top: 100px;
@@ -519,12 +540,20 @@ a:hover,a:active{text-decoration:none;color:#FF9513;}
  }
  .yezi4{
 	 position: absolute;
-	 left: 0;
-	 top: 42%;
+	 left: -280px;
+	 top: 326px;
 	 width: 235px;
 	 height: auto;
 	 z-index: 1;
 	 
+ }
+ .rights-yez{
+	 position: absolute;
+	 right: -290px;
+	 width: 279px !important;
+	 bottom: 0;
+	 height: auto;
+	 z-index: 1;
  }
  .attract-investment{
 	 width: 100%;
@@ -750,7 +779,7 @@ a:hover,a:active{text-decoration:none;color:#FF9513;}
 	 }
  }
  .brand-detail{
-	 margin: 60px auto 0 !important;
+	 margin: 30px auto 0 !important;
 	 .banner-img{
 		  width: 1030px;
 		 height: auto;
@@ -931,7 +960,8 @@ a:hover,a:active{text-decoration:none;color:#FF9513;}
 	 position: absolute;
 	 left: 60px;
 	 bottom: 70px;
-	 width: 366px;
+	 width: 244px;
+	 height: auto;
 	 z-index: 1;
  }
  .gray-yezi2{
@@ -1034,7 +1064,7 @@ main{
 	margin-right: -150px;
 }
 .business{
-	padding-top: 60px !important;
+	padding-top: 80px !important;
 }
 .cooperation-group{
 	overflow: hidden;
@@ -1192,10 +1222,10 @@ main{
 	}
 }
 .left-tu1{
-	left: 60px;
+	left: 102px;
 	width: 185px;
 	position: absolute;
-	top: 45%;	
+	top: 930px;	
 }
 .left-tu2{
 	width: 181px;
@@ -1214,11 +1244,13 @@ main{
 	width: 239px;
 	position: absolute;
 	left: 0;
-	top: calc(45% + 170px);
+	top: 1030px;
 }
 .super-box{
 	padding-top: 230px;
 	text-align: left;
+	width: 1100px;
+	margin: 0 auto;
 	.super-title{
 		font-size: 34px;
 		color: #141414;
@@ -1228,7 +1260,7 @@ main{
 }
 .cooperation-box-logo{
 	display: flex;
-	padding-top: 60px;
+	padding-top: 85px;
 	padding-bottom: 100px;
 	z-index: 2;
 }
@@ -1379,7 +1411,7 @@ main{
 }
 .about-content{
 	position: relative;
-	margin-top: 60px;
+	margin-top: 20px;
 	padding-bottom: 120px;
 }
 .about-info-box{
@@ -1542,7 +1574,7 @@ main{
 }
 .address-box{
 	width: 1300px;
-	margin: 60px auto 0;
+	margin: 70px auto 0;
 	box-shadow:0px 8px 40px 0px rgba(0,0,0,0.1);
 	background: #fff;
 	.address-head{
@@ -1711,6 +1743,7 @@ main{
 	height: 800px;
 	display: flex;
 	align-items: center;
+	position: relative;
 	img{
 		width: 100%;
 		height: auto;

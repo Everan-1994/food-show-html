@@ -2,7 +2,7 @@
 	<div>
 		<Hearder :navActive='navActive' />
 
-		<div class="brand-box-warp">
+		<div class="brand-box-warp big-bg">
 			<div class="brand-box">
 				<h1 class="brand-title">品牌合作</h1>
 				<p class="brand-desc">Brand cooperation</p>

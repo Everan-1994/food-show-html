@@ -5,28 +5,31 @@
 			<div class="brand-box">
 				<h1 class="brand-title">商超合作</h1>
 				<p class="brand-desc">Brand cooperation</p>
-				
 				<div class="crumbs">
 					<nuxt-link to='/businessSuperCooperation/default'>商超合作</nuxt-link>
 					<nuxt-link :to='id'>详情</nuxt-link>
 				</div>
-				
-				<div class="super-box">
-					<h1 class="super-title">{{superArr.name}} </h1>
-					<main v-html="superArr.content"></main>
+				<div class="w1100">
 					
-					<div class="img">
-						<img :src="imgUrl+item" v-for="item in superArr.images_url " :key="item" />
+					
+					<div class="super-box">
+						<h1 class="super-title">{{superArr.name}} </h1>
+						<main v-html="superArr.content"></main>
+						
+						<div class="img">
+							<img :src="imgUrl+item" v-for="item in superArr.images_url " :key="item" />
+						</div>
 					</div>
+					
 				</div>
-			</div>
-			
-			
-			<img src="~/assets/images/pic_cooperation_pic1@2x.png"  class="left-tu1"/>
-			<img src="~/assets/images/pic_cooperation_pic2@2x.png"  class="left-tu2"/>
-			<img src="~/assets/images/pic_cooperation_pic3@2x.png"  class="left-tu3"/>
-			<img src="~/assets/images/pic-ownbrand-leaf1@2x.png"  class="left-tu4"/>
+				
+			</div>	
+					<img src="~/assets/images/pic_cooperation_pic1@2x.png"  class="left-tu1"/>
+					<img src="~/assets/images/pic_cooperation_pic2@2x.png"  class="left-tu2"/>
+					<img src="~/assets/images/pic_cooperation_pic3@2x.png"  class="left-tu3"/>
+					<img src="~/assets/images/pic-ownbrand-leaf1@2x.png"  class="left-tu4"/>
 		</div>
+		
 		<Footer :data="footers" />
 	</div>
 </template>

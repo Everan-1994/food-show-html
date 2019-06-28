@@ -5,32 +5,36 @@
 			<div class="brand-box">
 				<h1 class="brand-title">LOTS OF FUN</h1>
 				<p class="brand-desc">&nbsp;</p>
-				<div class="brand-product-group">
-					<div class="brand-product-list" v-for="item in ownArr" :data-id="item.id" :key="item.id">
-						<nuxt-link :to="'/myBrand/'+item.id" class="warp">
-							<div class="img">
-								<img :src="imgUrl+item.goods_img" />
+
+			</div>
+		</div>
+
+		<div class="container brand-content">
+			<div class="brand-product-group">
+				<div class="brand-product-list" v-for="item in ownArr" :data-id="item.id" :key="item.id">
+					<nuxt-link :to="'/myBrand/'+item.id" class="warp">
+						<div class="img">
+							<img :src="imgUrl+item.goods_img" />
+						</div>
+						<div class="brand-product-info">
+							<div class="product-name">{{item.goods_name}}</div>
+							<div class="product-desc">{{item.goods_intro}}</div>
+							<div class="detail-btn">
+
+								<img src="../../assets/images/ic-ownbrand-enter@2x.png" />
+
 							</div>
-							<div class="brand-product-info">
-								<div class="product-name">{{item.goods_name}}</div>
-								<div class="product-desc">{{item.goods_intro}}</div>
-								<div class="detail-btn">
-
-									<img src="../../assets/images/ic-ownbrand-enter@2x.png" />
-
-								</div>
-							</div>
-						</nuxt-link>
-					</div>
-					
-				</div>
-
-				<div class="more-brand">
-					<img src="~/assets/images/pic-ownbrand-line@2x.png" />
-					<nuxt-link to='brandlist' class="footBtn">查看更多</nuxt-link>
+						</div>
+					</nuxt-link>
 				</div>
 
 			</div>
+
+			<div class="more-brand">
+				<img src="~/assets/images/pic-ownbrand-line@2x.png" />
+				<nuxt-link to='brandlist' class="footBtn">查看更多</nuxt-link>
+			</div>
+
 			<img src="../../assets/images/pic-ownbrand-leaf1@2x.png" class="yezi4" />
 
 			<div class="brand-introduce">
@@ -51,7 +55,7 @@
 									<p>{{item.idea}}</p>
 								</div>
 							</div>
-							
+
 						</div>
 
 						<div class="swiper-pagination" v-if="brand_info.brand_intro.length>1"></div>
@@ -60,7 +64,7 @@
 
 						</div>
 						<div class="swiper-button-next" v-if="brand_info.brand_intro.length>1">
-							<img src="~/assets/images/ic-ownbrand-next@2x.png"  />
+							<img src="~/assets/images/ic-ownbrand-next@2x.png" />
 						</div>
 						<div class="brand-introduce-number" v-if="brand_info.brand_intro.length>1">
 							<span>0{{activeIndexs}}</span> / 0{{brand_info.brand_intro.length}}
@@ -70,17 +74,17 @@
 				<div class="right-brand-instroduct">
 					<div v-swiper:swiper="swiperOption1" ref="swiper" class="box right-swper">
 						<div class="swiper-wrapper">
-							<div class="swiper-slide brand-swipers" v-for="(item,index) in brand_info.picture_video" :key="index">								
+							<div class="swiper-slide brand-swipers" v-for="(item,index) in brand_info.picture_video" :key="index">
 								<div v-if='item.type==1' class="box">
-									<img :src="imgUrl+item.url"/>
+									<img :src="imgUrl+item.url" />
 								</div>
 								<div v-else class="box">
 									<video class="brand-video" :src="imgUrl+item.url" id="video" @click="getVideo"></video>
-									<img v-if="isShowVideo" src="~/assets/images/ic-ownbrand-videobutton@2x.png" class="video-play-btn"  @click="getVideo"/>
+									<img v-if="isShowVideo" src="~/assets/images/ic-ownbrand-videobutton@2x.png" class="video-play-btn" @click="getVideo" />
 								</div>
-							
+
 							</div>
-							
+
 						</div>
 						<div class="swiper-button-prev">
 
@@ -89,6 +93,8 @@
 
 						</div>
 					</div>
+					
+					<img src="~/assets/images/pic-ownbrand-leat2@2x.png"  class="rights-yez"/>
 				</div>
 			</div>
 			<div class="attract-investment" style="background-image: url(../images/pic-ownbrand-streak@2x.png);">
@@ -107,7 +113,11 @@
 					</div>
 				</div>
 			</div>
+
+
 		</div>
+
+
 		<Footer :data="footers" />
 	</div>
 </template>
@@ -125,15 +135,17 @@
 			error
 		}) {
 
-			let own_brand = await getRequest(`own_brand`,{pageSize:3});
+			let own_brand = await getRequest(`own_brand`, {
+				pageSize: 3
+			});
 			let own_brand_info = await getRequest(`own_brand/intro`);
 			let merchants_proxy = await getRequest(`merchants_proxy`);
 			let footer = await getRequest(`footer`);
-			
+
 			return {
 				ownArr: own_brand.data.data,
-				brand_info:own_brand_info.data,
-				merchants:merchants_proxy.data,
+				brand_info: own_brand_info.data,
+				merchants: merchants_proxy.data,
 				footers: footer.data
 			};
 		},
@@ -154,8 +166,8 @@
 						prevEl: '.swiper-button-prev',
 					},
 					watchSlidesProgress: true,
-					on:{
-						transitionEnd:function(){
+					on: {
+						transitionEnd: function() {
 							self.activeIndexs = this.activeIndex + 1
 						}
 					}
@@ -166,7 +178,7 @@
 						prevEl: '.swiper-button-prev',
 					}
 				},
-				isShowVideo:true
+				isShowVideo: true
 			};
 		},
 		created() {
@@ -177,7 +189,7 @@
 			Footer
 		},
 		mounted() {
-			
+
 		},
 		methods: {
 			gotoDetail() {
@@ -186,15 +198,15 @@
 				console.log(this.$refs.swipers.swiper.realIndex)
 			},
 			getVideo() {
-				let myVideo = document.querySelector(".brand-video");							
-				if(this.isShowVideo){
+				let myVideo = document.querySelector(".brand-video");
+				if (this.isShowVideo) {
 					myVideo.play()
 					this.isShowVideo = false;
-				}else{
+				} else {
 					myVideo.pause()
 					this.isShowVideo = true;
 				}
-				
+
 				let that = this
 				myVideo.addEventListener('play', function() {
 					that.isShowVideo = false;
@@ -202,7 +214,7 @@
 				myVideo.addEventListener('pause', function() {
 					that.isShowVideo = true;
 				})
-				
+
 			},
 		}
 	};

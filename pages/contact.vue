@@ -2,7 +2,7 @@
 	<div class="contact-bg">
 		<Hearder :navActive='navActive' />
 		<div>
-			<div class="brand-box-warp">
+			<div class="brand-box-warp big-bg">
 				<div class="brand-box">
 					<h1 class="brand-title">联系我们</h1>
 					<p class="brand-desc">contact us</p>

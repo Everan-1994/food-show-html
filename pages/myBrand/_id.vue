@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<Hearder :navActive='navActive' />
-		<div class="brand-box-warp">
+		<div class="brand-box-warp big-bg">
 			<div class="brand-box">
 				<h1 class="brand-title">{{ownArr.goods_name}}</h1>
 				<p class="brand-desc">Extruded Pellet</p>
@@ -20,8 +20,8 @@
 							</a>
 						</div>
 					</div>
-					<div class="swiper-button-prev" style="background-image: url('/images/ic_home_back.png') !important;"></div>
-					<div class="swiper-button-next" style="background-image: url('/images/ic_home_next.png') !important;"></div>
+					<div class="swiper-button-prev" style="background-image: url('/images/icon-left.png') !important;opacity: 1!important;margin-top: -30px !important;"></div>
+					<div class="swiper-button-next" style="background-image: url('/images/icon-left.png') !important;transform: rotate(180deg);margin-top: -30px !important;opacity: 1!important;"></div>
 
 				</div>
 

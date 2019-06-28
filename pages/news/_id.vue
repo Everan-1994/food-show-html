@@ -105,7 +105,7 @@
 
 
 
-			<img src="../../assets/images/pic_news_leaf4@2x.png" class="gray-yezi1" />
+			<img src="../../assets/images/pic_news_leaf2@2x.png" class="gray-yezi1" />
 			<img src="../../assets/images/pic_news_leaf3@2x.png" class="gray-yezi2" />
 			<img src="../../assets/images/pic_news_leaf4@2x.png" class="gray-yezi3" />
 		</div>
