@@ -396,22 +396,22 @@ a:hover,a:active{text-decoration:none;color:#FF9513;}
 	 background-image: url(/images/pic_top_pic@2x.png);
 	 background-position: center top;
 	 background-repeat: no-repeat;
-	 background-size: 100% 600px;
+	 background-size: 100% 500px;
 	 position: relative;
 	 overflow: hidden;
-	 min-height: 600px;
+	 min-height: 500px;
  }
  .big-bg{
 	  background-image: url(/images/pic_background.png);
 	 background-position: center top;
 	 background-repeat: no-repeat;
-	 background-size: 100% 800px;
+	 background-size: 100% 650px;
 	 position: relative;
 	 overflow: hidden;
-	 min-height: 800px;
+	 min-height: 650px;
  }
  .brand-box{
-	 padding-top: 265px;
+	 padding-top: 200px;
 	 text-align: center;
 	 position: relative;
 	 width: 1200px;
@@ -819,7 +819,7 @@ a:hover,a:active{text-decoration:none;color:#FF9513;}
 	 margin: 0 auto;
  }
  .new-box{
-	 padding-top: 180px;
+	 padding-top: 90px;
 	 display: flex;
 	 z-index: 2;
 	 padding-bottom: 80px;
@@ -967,14 +967,14 @@ a:hover,a:active{text-decoration:none;color:#FF9513;}
  .gray-yezi2{
 	 position: absolute;
 	 right: -60px;
-	 bottom: 15%;
+	 top: 600px;
 	 width: 288px;
 	 z-index: 1;
  }
  .gray-yezi3{
 	 position: absolute;
-	 bottom: -100px;
-	 right: 10%;
+	 bottom: -210px;
+	 right: 14%;
 	 width: 310px;
 	 z-index: 1;
  }
@@ -1574,9 +1574,11 @@ main{
 }
 .address-box{
 	width: 1300px;
-	margin: 70px auto 0;
+	margin: 40px auto 80px;
 	box-shadow:0px 8px 40px 0px rgba(0,0,0,0.1);
 	background: #fff;
+	position: relative;
+	z-index: 2;
 	.address-head{
 		height: 90px;
 		background: @color;
@@ -1664,24 +1666,30 @@ main{
 	position: relative;
 	.titles{
 		color: #141414;
-		padding-top: 130px;
+		padding-top: 40px;
 		line-height: 33px;
 		font-size: 24px;
 		font-weight: bold;
-		margin-bottom: 34px;
+		margin-bottom: 16px;
 	}
 	.contact-information-btn{
 		font-size: 16px;
-		color: #fff;
-		background: @color;
+		color: #000;
+		background: #fff;
 		height: 56px;
 		width: 195px;
 		margin: 0 auto 24px;
+		font-weight: 600;
 		outline: none;
 		cursor: pointer;
+		border: 1px solid #FFDD7B;
 		border-radius: 56px;
 		position: relative;
 		z-index: 9;
+		img{
+			width: 27px;
+			height: auto;
+		}
 	}
 }
 .shangchaobox{

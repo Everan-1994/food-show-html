@@ -67,8 +67,8 @@
 					</div>
 					
 				</div>
-				<div class="swiper-button-prev" style="background-image: url('/images/icon-left.png') !important;margin-top: 30px !important;opacity: 1!important;"></div>
-				<div class="swiper-button-next" style="background-image: url('/images/icon-left.png') !important;transform: rotate(180deg);margin-top: 30px !important;opacity: 1!important;"></div>
+				<div class="swiper-button-prev" style="background-image: url('/images/icon-left2.png') !important;margin-top: 0px !important;opacity: 1!important;width: 47px !important;height: 100px!important;"></div>
+				<div class="swiper-button-next" style="background-image: url('/images/icon-left2.png') !important;transform: rotate(180deg);margin-top: 0px !important;opacity: 1!important;width: 47px !important;height: 100px!important;"></div>
 					
 			</div>
 		

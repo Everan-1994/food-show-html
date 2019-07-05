@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div style="position: relative;">
 
 		<div class="brand-box-warp">
 			<Hearder :navActive='navActive' />
@@ -36,6 +36,10 @@
 			</div>
 			<img src="~/assets/images/pic_news_leaf2@2x.png" class="gray-yezi1" style="top: 600px; bottom: inherit;" />
 			<img src="~/assets/images/pic_news_leaf3@2x.png" class="gray-yezi2" style="right: 0;" />
+		</div>
+		<div class="reture-list" @click="getReturn">
+			<img src="/images/icon-left.png" />
+			<p>返回</p>
 		</div>
 		<Footer :data="footers" />
 	</div>
@@ -100,6 +104,13 @@
 				})
 
 			},
+			getReturn() {
+				let id = this.$route.params.child
+				console.log(id)
+				this.$router.push({
+					path: '/news/'+id,
+				})
+			}
 		}
 	};
 </script>
