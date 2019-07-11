@@ -1261,53 +1261,66 @@ main{
 .cooperation-box-logo{
 	display: flex;
 	padding-top: 85px;
-	padding-bottom: 100px;
 	z-index: 2;
 }
 .left-img{
 	width: 590px;
 	height: auto;
-	min-width: 560px;
-	margin-top: 380px;
-	margin-left: -80px;
-	position: relative;
+	position: absolute;
+	left: 0;
+	top: 300px;
+	z-index: 1;
 	img{
 		width: 100%;
 		height: auto;
 		position: relative;
-		z-index: 5;
+		
 	}
 }
 .logo-group{
-	padding: 25px;
-	box-shadow:0px 8px 40px 0px rgba(0,0,0,0.1);
-	border-radius: 20px;
-	background: #fff;
-	width: 736px;
-	min-width: 736px;
-	margin-left: -45px;
-	height: 811px;
+	// padding: 25px;
+	// box-shadow:0px 8px 40px 0px rgba(0,0,0,0.1);
+	// border-radius: 20px;
+	// background: #fff;
+	// width: 736px;
+	// min-width: 736px;
+	// margin-left: -45px;
+	// height: 811px;
 	overflow: hidden;
+	padding-left: 63px;
+	padding-right: 63px;
+	padding-bottom: 30px;
 	position: relative;
+	box-sizing: border-box;
 	z-index: 3;
 	.logo-list{
-		width: 194px;
-		height: 218px;
-		margin: 15px;
-		box-shadow:0px 8px 40px 0px rgba(0,0,0,0.1);
+		width: 280px;
+		height: 290px;
+		margin: 16px 12px;
+		// box-shadow:0px 8px 40px 0px rgba(0,0,0,0.1);
+		box-shadow:0px 1px 7px 0px rgba(229,229,229,0.5);
 		border-radius: 3px;
 		float: left;
+		background: #fff;
+		position: relative;
 		.logo-imgs,.logo-hover-img{
 			width: 100%;
-			height: 162px;
+			height: 220px;
 			text-align: center;
-			line-height: 162px;
+			line-height: 200px;
 			img{
 				max-width: 100%;
+				max-height: 220px;
+				width: auto !important;
 			}
 		}
 		.logo-hover-img{
 			display: none;
+			line-height: 200px;
+			img{
+				width: 100% !important;
+				height: auto;
+			}
 		}
 		p{
 			text-align: center;
@@ -1320,12 +1333,31 @@ main{
 			white-space: nowrap;
 			border-top: 1px solid #E5E5E5;
 		}
+		.detail-btn{
+			width: 40px;
+			height: 40px;
+			color: #fff;
+			background: #FFB006;
+			position: absolute;
+			bottom: -20px;
+			left: 50%;
+			margin-left: -20px;
+			border-radius: 50%;
+			text-align: center;
+			line-height: 40px;
+			display: none;
+			img{
+				width: 20px;
+				height: auto;
+			}
+		}
 	}
 	.logo-list:hover{
+		box-shadow:0px 10px 20px 0px rgba(229,229,229,1);
 		p{
 			color: @color;
 		}
-		.logo-hover-img{
+		.logo-hover-img,.detail-btn{
 			display: block;
 		}
 		.logo-imgs{
