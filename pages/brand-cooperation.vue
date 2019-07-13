@@ -6,7 +6,7 @@
 			<div class="left-img">
 				<img src="~/assets/images/pic_brandcooperation_pic1@3x.png" />
 			</div>
-			<div class="brand-box" style="width: 1350px;">
+			<div class="brand-box min-brand-width">
 				<h1 class="brand-title">品牌合作</h1>
 				<p class="brand-desc">Brand cooperation</p>
 
@@ -37,8 +37,8 @@
 								</div>
 							</div>
 						</div>
-						<div class="swiper-button-prev" style="background-image: url('/images/icon-left2.png') !important;opacity: 1!important;margin-top: -100px !important;width: 47px !important;height: 100px!important;"></div>
-						<div class="swiper-button-next" style="background-image: url('/images/icon-left2.png') !important;transform: rotate(180deg);margin-top: -100px !important;opacity: 1!important;width: 47px !important;height: 100px!important;"></div>
+						<div class="swiper-button-prev" style="background-image: url('/images/icon-left2.png') !important;opacity: 1!important;margin-top: -68px !important;width: 47px !important;height: 100px!important;"></div>
+						<div class="swiper-button-next" style="background-image: url('/images/icon-left2.png') !important;transform: rotate(180deg);margin-top: -68px !important;opacity: 1!important;width: 47px !important;height: 100px!important;"></div>
 
 					</div>
 
@@ -46,7 +46,7 @@
 
 				</div>
 
-				<div style="width: 1200px;margin: 0 auto;">
+				<div class="w1200">
 					<div class="idea">
 						<div class="idea-title">
 							<img src="~/assets/images/pic_cooperation_titie@2x.png" />
