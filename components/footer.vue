@@ -6,19 +6,19 @@
 				<div class="footer-link">
 					<ul>
 						<li>
-							<nuxt-link to='/'>首页</nuxt-link>
+							<a href='/'>首页</a>
 						</li>
 						<li>
-							<nuxt-link to='/brand-cooperation'>品牌合作</nuxt-link>
+							<a href='/brand-cooperation'>品牌合作</a>
 						</li>
 						<li>
-							<nuxt-link to='/businessSuperCooperation/default'>商超合作</nuxt-link>
+							<a href='/businessSuperCooperation/default'>商超合作</a>
 						</li>
 						<li>
-							<nuxt-link to='/myBrand/brand'>Lots of fun</nuxt-link>
+							<a href='/myBrand/brand'>Lots of fun</a>
 						</li>
 						<li>
-							<nuxt-link to='/news/0'>新闻中心</nuxt-link>
+							<a href='/news/0'>新闻中心</a>
 						</li>
 						<li>
 							<a href='/aboutUs'>关于我们</a>

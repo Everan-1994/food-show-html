@@ -3,32 +3,32 @@
 		<div class="container">
 			<ul class="nav">
 				<li :class="navActive == 'home' ? 'active' : ''">
-					<nuxt-link to="/" >首页</nuxt-link>
+					<a href="/" >首页</a>
 				</li>
 				<li :class="navActive == 'brand-cooperation' ? 'active' : ''">
-					<nuxt-link to="/brand-cooperation">品牌合作</nuxt-link>
+					<a href="/brand-cooperation">品牌合作</a>
 				</li>
 				<li :class="navActive == 'businessSuperCooperation' ? 'active' : ''">
-					<nuxt-link to="/businessSuperCooperation/default">商超合作</nuxt-link>
+					<a href="/businessSuperCooperation/default">商超合作</a>
 				</li>
 				<li :class="navActive == 'brand' ? 'active' : ''">
-					<nuxt-link to="/myBrand/brand">Lots of fun</nuxt-link>
+					<a href="/myBrand/brand">Lots of fun</a>
 				</li>
 			</ul>
 			<div class="logo-center">
-				<nuxt-link to='/'>
+				<a href='/'>
 					<img src="~/assets/images/pic_top_logo@2x.png" />
-				</nuxt-link>
+				</a>
 			</div>
 			<ul class="nav right-nav">
 				<li :class="navActive == 'news' ? 'active' : ''">
-					<nuxt-link to="/news/0">新闻中心</nuxt-link>
+					<a href="/news/0">新闻中心</a>
 				</li>
 				<li :class="navActive == 'about' ? 'active' : ''">
 					<a href="/aboutUs">关于我们</a>
 				</li>
 				<li :class="navActive == 'contact' ? 'active' : ''">
-					<nuxt-link to="/contact">联系我们</nuxt-link>
+					<a href="/contact">联系我们</a>
 				</li>
 			</ul>
 		</div>
