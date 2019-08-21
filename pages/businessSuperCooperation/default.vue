@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<Hearder :navActive='navActive' />
-	<div class="brand-box-warp" style="overflow: unset;">
+	<div class="brand-box-warp big-bg" style="overflow: unset;">
 		<div class="brand-box">
 			<h1 class="brand-title">商超合作</h1>
 			<p class="brand-desc">Brand cooperation</p>
@@ -67,8 +67,8 @@
 					</div>
 					
 				</div>
-				<div class="swiper-button-prev" style="background-image: url('/images/ic_arrowhead.png') !important;"></div>
-				<div class="swiper-button-next" style="background-image: url('/images/ic_arrowhead.png') !important;transform: rotate(180deg);"></div>
+				<div class="swiper-button-prev" style="background-image: url('/images/icon-left2.png') !important;margin-top: 0px !important;opacity: 1!important;width: 47px !important;height: 100px!important;"></div>
+				<div class="swiper-button-next" style="background-image: url('/images/icon-left2.png') !important;transform: rotate(180deg);margin-top: 0px !important;opacity: 1!important;width: 47px !important;height: 100px!important;"></div>
 					
 			</div>
 		

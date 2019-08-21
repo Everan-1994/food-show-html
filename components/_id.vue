@@ -1,5 +1,5 @@
 <template>
-	<div style="position: relative;">
+	<div>
 		<Hearder :navActive='navActive' />
 		<div class="brand-box-warp">
 			<div class="brand-box">
@@ -29,10 +29,7 @@
 					<img src="~/assets/images/pic_cooperation_pic3@2x.png"  class="left-tu3"/>
 					<img src="~/assets/images/pic-ownbrand-leaf1@2x.png"  class="left-tu4"/>
 		</div>
-		<div class="reture-list" @click="getReturn">
-			<img src="/images/icon-left.png" />
-			<p>返回</p>
-		</div>
+		
 		<Footer :data="footers" />
 	</div>
 </template>
@@ -76,13 +73,7 @@
 			Hearder,
 			Footer
 		},
-		methods: {
-			getReturn() {
-				this.$router.push({
-					path: '/businessSuperCooperation/default',
-				})
-			}
-		}
+		methods: {}
 	};
 </script>
 

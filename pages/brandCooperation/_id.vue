@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div style="position: relative;">
 		<Hearder :navActive='navActive' />
 		<div class="brand-box-warp">
 			<div class="brand-box">
@@ -32,6 +32,10 @@
 			<img src="~/assets/images/pic_brandcooperation_leaf@2x.png" class="brand-pisi2" />
 
 
+		</div>
+		<div class="reture-list" @click="getReturn">
+			<img src="/images/icon-left.png" />
+			<p>返回</p>
 		</div>
 		<Footer :data="footers" />
 	</div>
@@ -96,6 +100,11 @@
 				})
 				
 			},
+			getReturn() {
+				this.$router.push({
+					path: '/brand-cooperation',
+				})			
+			}
 		}
 	};
 </script>

@@ -1,7 +1,7 @@
 <template>
-	<div>
+	<div style="position: relative;">
 		<Hearder :navActive='navActive' />
-		<div class="brand-box-warp">
+		<div class="brand-box-warp big-bg">
 			<div class="brand-box">
 				<h1 class="brand-title">{{ownArr.goods_name}}</h1>
 				<p class="brand-desc">Extruded Pellet</p>
@@ -20,8 +20,8 @@
 							</a>
 						</div>
 					</div>
-					<div class="swiper-button-prev" style="background-image: url('/images/ic_home_back.png') !important;"></div>
-					<div class="swiper-button-next" style="background-image: url('/images/ic_home_next.png') !important;"></div>
+					<div class="swiper-button-prev" style="background-image: url('/images/icon-left2.png') !important;opacity: 1!important;margin-top: -100px !important;width: 47px !important;height: 100px!important;"></div>
+					<div class="swiper-button-next" style="background-image: url('/images/icon-left2.png') !important;transform: rotate(180deg);margin-top: -100px !important;opacity: 1!important;width: 47px !important;height: 100px!important;"></div>
 
 				</div>
 
@@ -35,8 +35,13 @@
 				</div>
 
 			</div>
+
 			<img src="../../assets/images/pic-home-leaf3.png" class="yezi5" />
 			<img src="../../assets/images/pic_brankdetails_leaf@2x.png" class="left-yezi1" />
+		</div>
+		<div class="reture-list" @click="getReturn">
+			<img src="/images/icon-left.png" />
+			<p>返回</p>
 		</div>
 		<Footer :data="footers" />
 	</div>
@@ -56,7 +61,7 @@
 		}) {
 			let own_brands = await getRequest(`own_brand/${params.id}`);
 			let footer = await getRequest(`footer`);
-			
+
 			return {
 				ownArr: own_brands.data,
 				footers: footer.data
@@ -94,17 +99,24 @@
 			Hearder,
 			Footer
 		},
-		methods: {}
+		methods: {
+			getReturn() {
+				this.$router.push({
+					path: '/myBrand/brandlist',
+				})
+			}
+		}
 	};
 </script>
 
 <style>
-.imgs-boxs{
-	text-align: center;
-	margin-top: 30px;
-}
-.imgs-boxs img{
-	max-width: 100%;
-	height: auto;
-}
+	.imgs-boxs {
+		text-align: center;
+		margin-top: 30px;
+	}
+
+	.imgs-boxs img {
+		max-width: 100%;
+		height: auto;
+	}
 </style>

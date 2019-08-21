@@ -2,12 +2,20 @@
 	<div class="contact-bg">
 		<Hearder :navActive='navActive' />
 		<div>
-			<div class="brand-box-warp">
+			<div class="brand-box-warp big-bg">
 				<div class="brand-box">
 					<h1 class="brand-title">联系我们</h1>
 					<p class="brand-desc">contact us</p>
 
-
+					<div class="contact-information">
+						<h3 class="titles">
+							如果你有兴趣可与我们取得联系或写下你的需求欢迎合作！
+						</h3>
+						<button class="contact-information-btn" @click="getShow">
+							<img src="/images/ic_write.png" />
+						合作提交
+						</button>
+					</div>
 				</div>
 				<div class="address-box">
 					<div class="address-head">
@@ -36,19 +44,13 @@
 						</div>
 					</div>
 				</div>
-				<div class="contact-information">
-					<h3 class="titles">
-						如果你有兴趣可与我们取得联系或写下你的需求 <br />欢迎合作！
-					</h3>
-					<button class="contact-information-btn" @click="getShow">合作提交</button>
 
-				</div>
 
 			</div>
 		</div>
 		<Footer :data="footers" />
 		<div>
-			
+
 			<div class="food-mask" v-if="elastic_frame">
 				<div class="food-mask-box">
 					<div class="close" @click="getright"></div>
@@ -79,7 +81,7 @@
 						<label>留言：</label>
 						<textarea placeholder="您的留言（必填）" v-model="message"></textarea>
 					</div>
-			
+
 					<div class="uplod-img">
 						<div class="uplod-img-list" v-if="images.length >0" v-for="(item,index) in images">
 							<img :src="imgUrl + item" class="img" />
@@ -88,27 +90,27 @@
 						<div class="add">
 							<div @click="fileClick">
 								<img src="~/assets/images/pic_contact_add.png" />
-								<input type="file" id="upload_file" ref="file" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" class="upload-input"
-								 @change="onFileChange" />
+								<input type="file" id="upload_file" ref="file" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg"
+								 class="upload-input" @change="onFileChange" />
 							</div>
 							<p>（{{images.length}}/5)</p>
 						</div>
-			
+
 					</div>
 					<div class="toast">{{toast_text}}</div>
 					<button class="contact-submit" @click="getSubmit">提交</button>
 				</div>
 			</div>
-			
+
 		</div>
-		
+
 		<div class="food-mask" v-show="success">
 			<div class="success-box">
 				<img src="../assets/images/pic_contact_success.png" />
 				<p>恭喜你！提交成功！</p>
 			</div>
 		</div>
-		
+
 		<div class="loading" v-if="loading">
 			<img src="~/assets/images/icon-loading.gif" />
 		</div>
@@ -132,7 +134,7 @@
 		uploadFileRequest
 	} from '~/plugins/vue-axios';
 
-	
+
 	export default {
 		async asyncData({
 			params,
@@ -175,8 +177,8 @@
 				images: [],
 				toast_text: '',
 				elastic_frame: false,
-				success:false,
-				loading:false
+				success: false,
+				loading: false
 
 			};
 		},
@@ -192,10 +194,10 @@
 
 
 		},
-		
+
 		methods: {
-			getright(){
-				
+			getright() {
+
 				this.elastic_frame = false
 				console.log(this.elastic_frame)
 			},
@@ -235,7 +237,7 @@
 				getRequest(`contact_us`, {
 					name: this.value
 				}).then(res => {
-					if (res.data.length > 0) {						
+					if (res.data.length > 0) {
 						let data = res.data
 						let poit = []
 						poit[0] = data[0].longitude
@@ -282,12 +284,12 @@
 				if (leng >= 5) {
 					this.toast_text = '最多只能上传5张图片'
 				} else {
-					
+
 					let formData = new FormData()
-					formData.append('images_url[]',file[0])
+					formData.append('images_url[]', file[0])
 					uploadFileRequest('uploads', formData).then(res => {
 						let data = res.data
-						vm.images.push(data) 
+						vm.images.push(data)
 						this.loading = false
 					})
 					// for (let i = 0; i < leng; i++) {
@@ -325,7 +327,7 @@
 				} else if (!(tel_reg.test(user_tel))) {
 					this.toast_text = "请输入正确的手机号"
 					return false
-				} else if (user_address  == "") {
+				} else if (user_address == "") {
 					this.toast_text = "请输入地址"
 					return false
 				} else if (title == "") {
@@ -334,7 +336,7 @@
 				} else if (user_message == "") {
 					this.toast_text = "请输入留言"
 					return false
-				} 
+				}
 				// else if (images_url.length==0) {
 				// 	this.toast_text = "请上传图片"
 				// 	return false
@@ -352,15 +354,15 @@
 					images_url: images_url,
 				}
 				postRequest('submit_cooperation', data).then(res => {
-					if(res.status>200){
+					if (res.status > 200) {
 						this.elastic_frame = false
 						this.success = true
 						let that = this
-						setTimeout(function(){
+						setTimeout(function() {
 							that.success = false
-						},1500)
+						}, 1500)
 					}
-					
+
 				})
 			}
 

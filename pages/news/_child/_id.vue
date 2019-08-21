@@ -1,6 +1,6 @@
 <template>
-	<div>
-		
+	<div style="position: relative;">
+
 		<div class="brand-box-warp">
 			<Hearder :navActive='navActive' />
 			<div class="brand-box">
@@ -13,7 +13,7 @@
 				</div>
 
 			</div>
-			<div class="container">
+			<div class="container" style="width: 1115px;z-index: 2;position: relative;">
 				<h1 class="news-detail-title">{{newArr.title}}</h1>
 				<div class="time">
 					{{newArr.created_at}} /
@@ -31,10 +31,17 @@
 					<img :src="imgUrl+newArr.detail_image" />
 				</div>
 				<div class="end">END</div>
-			</div>
-			<Footer :data="footers" />
-		</div>
 
+
+			</div>
+			<img src="~/assets/images/pic_news_leaf2@2x.png" class="gray-yezi1" style="top: 600px; bottom: inherit;" />
+			<img src="~/assets/images/pic_news_leaf3@2x.png" class="gray-yezi2" style="right: 0;" />
+		</div>
+		<div class="reture-list" @click="getReturn">
+			<img src="/images/icon-left.png" />
+			<p>返回</p>
+		</div>
+		<Footer :data="footers" />
 	</div>
 </template>
 
@@ -97,6 +104,13 @@
 				})
 
 			},
+			getReturn() {
+				let id = this.$route.params.child
+				console.log(id)
+				this.$router.push({
+					path: '/news/'+id,
+				})
+			}
 		}
 	};
 </script>
