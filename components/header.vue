@@ -3,13 +3,13 @@
 		<div class="container">
 			<ul class="nav">
 				<li :class="navActive == 'home' ? 'active' : ''">
-					<a href="/" >首页</a>
+					<nuxt-link to="/" >首页</nuxt-link>
 				</li>
 				<li :class="navActive == 'brand-cooperation' ? 'active' : ''">
 					<a href="/brand-cooperation">品牌合作</a>
 				</li>
 				<li :class="navActive == 'businessSuperCooperation' ? 'active' : ''">
-					<a href="/businessSuperCooperation/default">商超合作</a>
+					<nuxt-link to="/businessSuperCooperation/default">商超合作</nuxt-link>
 				</li>
 				<li :class="navActive == 'brand' ? 'active' : ''">
 					<a href="/myBrand/brand">Lots of fun</a>
@@ -22,13 +22,13 @@
 			</div>
 			<ul class="nav right-nav">
 				<li :class="navActive == 'news' ? 'active' : ''">
-					<a href="/news/0">新闻中心</a>
+					<nuxt-link to="/news/0">新闻中心</nuxt-link>
 				</li>
 				<li :class="navActive == 'about' ? 'active' : ''">
 					<a href="/aboutUs">关于我们</a>
 				</li>
 				<li :class="navActive == 'contact' ? 'active' : ''">
-					<a href="/contact">联系我们</a>
+					<nuxt-link to="/contact">联系我们</nuxt-link>
 				</li>
 			</ul>
 		</div>
